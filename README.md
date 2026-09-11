@@ -47,7 +47,7 @@ Validator.format(value: string): string
 | CPF | ✅ Available |
 | CNPJ (numeric) | ✅ Available |
 | CNPJ (alphanumeric) | ✅ Available |
-| CEP | Planned |
+| CEP | ✅ Available |
 | Phone numbers | Planned |
 | E-mail | Planned |
 | PIX keys | Planned |
@@ -82,12 +82,26 @@ CNPJ.format("12ABC34501DE35"); // "12.ABC.345/01DE-35"
 
 Alphanumeric CNPJ uses 12 alphanumeric positions (`A-Z`, `0-9`) followed by 2 numeric check digits, calculated with modulo 11 as specified by Receita Federal's official technical documentation.
 
+### CEP
+
+```ts
+CEP.isValid("01310-100"); // true
+CEP.isValid("01310100"); // true
+CEP.isValid("0131010"); // false (wrong length)
+
+CEP.normalize("01310-100"); // "01310100"
+CEP.format("01310100"); // "01310-100"
+```
+
+A CEP (Código de Endereçamento Postal) is an 8-digit postal routing code defined by Correios (the Brazilian postal service). Unlike CPF/CNPJ, it has no check digit — validation here checks structure (8 digits) only, not whether the code exists in Correios' address database.
+
 ## Normalize behavior
 
 `normalize()` produces the canonical (formatting-free) representation of a value:
 
 - **CPF** and numeric **CNPJ** are normalized to digits only.
 - **CNPJ alphanumeric** is normalized to uppercase, keeping letters and digits (a digit-only strip would destroy alphanumeric CNPJ values).
+- **CEP** is normalized to digits only.
 
 ## Format behavior
 
@@ -105,6 +119,7 @@ Currently available as a TypeScript / JavaScript (ESM) package. Implementations 
 
 - [Receita Federal — CNPJ technical documents](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/documentos-tecnicos/cnpj)
 - [Receita Federal — CNPJ Alphanumeric Q&A (PDF)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/cnpj/cnpj-alfanumerico.pdf)
+- [Correios — Guia de Endereçamento (CEP structure)](https://www.correios.com.br/enviar/precisa-de-ajuda/guia-de-enderecamento/guia-de-enderecamento)
 
 ## Contributing
 

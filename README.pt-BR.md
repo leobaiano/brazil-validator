@@ -47,7 +47,7 @@ Validator.format(value: string): string
 | CPF | ✅ Disponível |
 | CNPJ (numérico) | ✅ Disponível |
 | CNPJ (alfanumérico) | ✅ Disponível |
-| CEP | Planejado |
+| CEP | ✅ Disponível |
 | Telefone | Planejado |
 | E-mail | Planejado |
 | Chave PIX | Planejado |
@@ -82,12 +82,26 @@ CNPJ.format("12ABC34501DE35"); // "12.ABC.345/01DE-35"
 
 O CNPJ alfanumérico usa 12 posições alfanuméricas (`A-Z`, `0-9`) seguidas de 2 dígitos verificadores numéricos, calculados com módulo 11 conforme a documentação técnica oficial da Receita Federal.
 
+### CEP
+
+```ts
+CEP.isValid("01310-100"); // true
+CEP.isValid("01310100"); // true
+CEP.isValid("0131010"); // false (comprimento incorreto)
+
+CEP.normalize("01310-100"); // "01310100"
+CEP.format("01310100"); // "01310-100"
+```
+
+O CEP (Código de Endereçamento Postal) é um código de roteamento postal de 8 dígitos definido pelos Correios. Diferente de CPF/CNPJ, não possui dígito verificador — a validação aqui checa apenas a estrutura (8 dígitos), não se o código existe na base de endereços dos Correios.
+
 ## Comportamento do normalize
 
 `normalize()` produz a representação canônica (sem formatação) de um valor:
 
 - **CPF** e **CNPJ numérico** são normalizados para apenas dígitos.
 - **CNPJ alfanumérico** é normalizado para maiúsculas, mantendo letras e dígitos (remover apenas os não-dígitos destruiria valores alfanuméricos de CNPJ).
+- **CEP** é normalizado para apenas dígitos.
 
 ## Comportamento do format
 
@@ -105,6 +119,7 @@ Atualmente disponível como pacote TypeScript / JavaScript (ESM). Implementaçõ
 
 - [Receita Federal — Documentos técnicos do CNPJ](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/documentos-tecnicos/cnpj)
 - [Receita Federal — Perguntas e respostas sobre CNPJ Alfanumérico (PDF)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/cnpj/cnpj-alfanumerico.pdf)
+- [Correios — Guia de Endereçamento (estrutura do CEP)](https://www.correios.com.br/enviar/precisa-de-ajuda/guia-de-enderecamento/guia-de-enderecamento)
 
 ## Contribuindo
 
