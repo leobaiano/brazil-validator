@@ -1,0 +1,37 @@
+{
+  "name": "br-validator",
+  "version": "0.1.0",
+  "description": "Validação, normalização e formatação de dados brasileiros.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "brazil",
+    "brasil",
+    "cpf",
+    "cnpj",
+    "cep",
+    "validator",
+    "validation"
+  ],
+  "author": "Matheus",
+  "license": "MIT",
+  "devDependencies": {
+    "tsx": "^4.20.0",
+    "typescript": "^5.0.0"
+  }
+}
