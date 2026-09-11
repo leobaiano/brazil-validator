@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "test": "vitest run",
     "dev": "tsx",
     "typecheck": "tsc --noEmit"
   },
@@ -32,6 +33,7 @@
   "license": "MIT",
   "devDependencies": {
     "tsx": "^4.20.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "vitest": "^4.1.11"
   }
 }
