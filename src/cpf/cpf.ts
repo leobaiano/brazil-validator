@@ -1,5 +1,7 @@
+import { removeNonDigits } from "../shared/normalize.js";
+
 function normalize(value: string): string {
-  return value.replace(/\D/g, "");
+  return removeNonDigits(value);
 }
 
 function calculateCheckDigit(cpf: string, weight: number): number {

@@ -38,6 +38,27 @@ describe("CPF", () => {
     it("should reject unexpected characters", () => {
       expect(CPF.isValid("529abc982xyz247-25")).toBe(false);
     });
+    it("should accept CPF with spaces", () => {
+      expect(CPF.isValid("529 982 247 25")).toBe(true);
+    });
+    it("should accept multiple valid CPFs", () => {
+      const validCpfs = ["529.982.247-25", "111.444.777-35", "935.411.347-80"];
+
+      for (const cpf of validCpfs) {
+        expect(CPF.isValid(cpf)).toBe(true);
+      }
+    });
+    it("should reject multiple invalid CPFs", () => {
+      const invalidCpfs = [
+        "529.982.247-26",
+        "111.444.777-36",
+        "935.411.347-81",
+      ];
+
+      for (const cpf of invalidCpfs) {
+        expect(CPF.isValid(cpf)).toBe(false);
+      }
+    });
   });
 
   describe("normalize", () => {
@@ -47,6 +68,13 @@ describe("CPF", () => {
 
     it("should normalize formatted CPF", () => {
       expect(CPF.normalize("529.982.247-25")).toBe("52998224725");
+    });
+    it("should normalize CPF without formatting", () => {
+      expect(CPF.normalize("52998224725")).toBe("52998224725");
+    });
+
+    it("should normalize CPF with spaces", () => {
+      expect(CPF.normalize("529 982 247 25")).toBe("52998224725");
     });
   });
 
