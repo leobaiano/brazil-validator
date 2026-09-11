@@ -1,0 +1,120 @@
+# br-validator
+
+A validation, normalization, and formatting library for Brazilian data (CPF, CNPJ, and more to come).
+
+*Leia em [português (pt-BR)](./README.pt-BR.md).*
+
+`br-validator` is an independent open-source project. It is **not** an official Receita Federal library, nor affiliated with any Brazilian government agency.
+
+## Installation
+
+```bash
+npm install br-validator
+```
+
+## Usage
+
+```ts
+import { CPF, CNPJ } from "br-validator";
+
+CPF.isValid("529.982.247-25"); // true
+CPF.normalize("529.982.247-25"); // "52998224725"
+CPF.format("52998224725"); // "529.982.247-25"
+
+CNPJ.isValid("11.222.333/0001-81"); // true
+CNPJ.normalize("11.222.333/0001-81"); // "11222333000181"
+CNPJ.format("11222333000181"); // "11.222.333/0001-81"
+```
+
+## API
+
+Every validator in this library follows the same conceptual pattern:
+
+```ts
+Validator.isValid(value: string): boolean
+Validator.normalize(value: string): string
+Validator.format(value: string): string
+```
+
+- **`isValid(value)`** — returns `true` if `value` is a valid identifier. Accepts both raw and formatted input, but rejects unexpected characters (invalid input is never silently sanitized into a valid one).
+- **`normalize(value)`** — strips formatting and returns the canonical representation of `value`.
+- **`format(value)`** — returns `value` in its standard human-readable representation. If `value` has an invalid length, it is returned unchanged.
+
+## Supported validators
+
+| Validator | Status |
+| --- | --- |
+| CPF | ✅ Available |
+| CNPJ (numeric) | ✅ Available |
+| CNPJ (alphanumeric) | ✅ Available |
+| CEP | Planned |
+| Phone numbers | Planned |
+| E-mail | Planned |
+| PIX keys | Planned |
+| Inscrição Estadual | Planned |
+
+### CPF
+
+```ts
+CPF.isValid("529.982.247-25"); // true
+CPF.isValid("52998224725"); // true
+CPF.isValid("111.111.111-11"); // false (repeated digits)
+
+CPF.normalize("529.982.247-25"); // "52998224725"
+CPF.format("52998224725"); // "529.982.247-25"
+```
+
+### CNPJ
+
+CNPJ validation covers both the traditional numeric format and the alphanumeric format introduced by Receita Federal.
+
+```ts
+// Numeric
+CNPJ.isValid("11.222.333/0001-81"); // true
+CNPJ.normalize("11.222.333/0001-81"); // "11222333000181"
+CNPJ.format("11222333000181"); // "11.222.333/0001-81"
+
+// Alphanumeric
+CNPJ.isValid("12.ABC.345/01DE-35"); // true
+CNPJ.normalize("12.ABC.345/01DE-35"); // "12ABC34501DE35"
+CNPJ.format("12ABC34501DE35"); // "12.ABC.345/01DE-35"
+```
+
+Alphanumeric CNPJ uses 12 alphanumeric positions (`A-Z`, `0-9`) followed by 2 numeric check digits, calculated with modulo 11 as specified by Receita Federal's official technical documentation.
+
+## Normalize behavior
+
+`normalize()` produces the canonical (formatting-free) representation of a value:
+
+- **CPF** and numeric **CNPJ** are normalized to digits only.
+- **CNPJ alphanumeric** is normalized to uppercase, keeping letters and digits (a digit-only strip would destroy alphanumeric CNPJ values).
+
+## Format behavior
+
+`format()` applies the standard visual formatting for the identifier (e.g. `529.982.247-25` for CPF, `11.222.333/0001-81` for CNPJ). If the normalized value has an invalid length, `format()` returns the original input unchanged.
+
+## Validation behavior
+
+`isValid()` is deterministic: it accepts raw or formatted input, but rejects any unexpected character. It never discards arbitrary characters to force an otherwise invalid value into a valid one.
+
+## Supported languages
+
+Currently available as a TypeScript / JavaScript (ESM) package. Implementations for other languages are a long-term goal of the broader `br-validator` project but are not part of this package yet.
+
+## Official references
+
+- [Receita Federal — CNPJ technical documents](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/documentos-tecnicos/cnpj)
+- [Receita Federal — CNPJ Alphanumeric Q&A (PDF)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/cnpj/cnpj-alfanumerico.pdf)
+
+## Contributing
+
+Contributions are welcome. Please:
+
+1. Add tests for any new validator or bug fix.
+2. Verify Brazilian government/fiscal rules against an official source before implementing them.
+3. Keep the `isValid` / `normalize` / `format` API pattern consistent with existing validators.
+4. Run `npm run build && npm test` before submitting changes.
+
+## License
+
+MIT
