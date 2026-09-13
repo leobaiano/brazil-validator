@@ -6,7 +6,10 @@ import { IE } from "../src/index.js";
 // sintegra.gov.br/Cad_Estados/cad_XX.html), or, where the source describes
 // the algorithm without a numeric example (RJ's weights, MG's second
 // vector, MS), a value independently hand-computed against that same
-// official algorithm.
+// official algorithm. DF is the one exception: sintegra.gov.br's own DF
+// page is empty, so its vector instead comes from two independent secondary
+// sources that agree with each other and whose arithmetic was re-checked by
+// hand (see src/ie/states/df.ts for details).
 const OFFICIAL_VECTORS: Array<[string, string]> = [
   ["SP", "110042490114"],
   ["RJ", "99999993"],
@@ -49,6 +52,7 @@ const OFFICIAL_VECTORS: Array<[string, string]> = [
   ["SC", "251040852"],
   ["SE", "271234563"],
   ["TO", "29010227836"],
+  ["DF", "0730000100109"],
 ];
 
 function flipLastDigit(value: string): string {
@@ -423,6 +427,28 @@ describe("IE", () => {
       });
     });
 
+    describe("DF", () => {
+      it("should accept the DF example with formatting", () => {
+        expect(IE.isValid("07.300.001.001-09", "DF")).toBe(true);
+      });
+
+      it("should accept the DF example without formatting", () => {
+        expect(IE.isValid("0730000100109", "DF")).toBe(true);
+      });
+
+      it("should reject a DF IE not starting with 07", () => {
+        expect(IE.isValid("0830000100109", "DF")).toBe(false);
+      });
+
+      it("should reject a DF IE with a wrong first check digit", () => {
+        expect(IE.isValid("0730000100119", "DF")).toBe(false);
+      });
+
+      it("should reject a DF IE with a wrong second check digit", () => {
+        expect(IE.isValid("0730000100108", "DF")).toBe(false);
+      });
+    });
+
     describe("TO", () => {
       it("should accept the official SEFAZ-TO example", () => {
         expect(IE.isValid("29010227836", "TO")).toBe(true);
@@ -441,15 +467,11 @@ describe("IE", () => {
       expect(IE.isValid("", "SP")).toBe(false);
     });
 
-    it("should reject an IE for a UF with no verified algorithm yet (DF)", () => {
-      expect(IE.isValid("0730000100109", "DF")).toBe(false);
-    });
-
     it("should reject an IE for a nonexistent UF", () => {
       expect(IE.isValid("110042490114", "XX")).toBe(false);
     });
 
-    it("should accept every officially verified vector across all 26 supported states", () => {
+    it("should accept every officially verified vector across all 27 states", () => {
       for (const [uf, value] of OFFICIAL_VECTORS) {
         expect(IE.isValid(value, uf)).toBe(true);
       }
@@ -483,8 +505,12 @@ describe("IE", () => {
       expect(IE.normalize("224/3658792", "RS")).toBe("2243658792");
     });
 
-    it("should return the original value for a UF with no verified algorithm yet", () => {
-      expect(IE.normalize("0730000100109", "DF")).toBe("0730000100109");
+    it("should remove formatting from a DF IE", () => {
+      expect(IE.normalize("07.300.001.001-09", "DF")).toBe("0730000100109");
+    });
+
+    it("should return the original value for a nonexistent UF", () => {
+      expect(IE.normalize("110042490114", "XX")).toBe("110042490114");
     });
   });
 
@@ -561,12 +587,16 @@ describe("IE", () => {
       expect(IE.format("271234563", "SE")).toBe("27123456-3");
     });
 
+    it("should format a normalized DF IE", () => {
+      expect(IE.format("0730000100109", "DF")).toBe("07.300.001.001-09");
+    });
+
     it("should return the original value when the length is invalid", () => {
       expect(IE.format("123", "SP")).toBe("123");
     });
 
-    it("should return the original value for a UF with no verified algorithm yet", () => {
-      expect(IE.format("0730000100109", "DF")).toBe("0730000100109");
+    it("should return the original value for a nonexistent UF", () => {
+      expect(IE.format("110042490114", "XX")).toBe("110042490114");
     });
   });
 });

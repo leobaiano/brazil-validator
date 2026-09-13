@@ -4,6 +4,7 @@ import { AM } from "./states/am.js";
 import { AP } from "./states/ap.js";
 import { BA } from "./states/ba.js";
 import { CE } from "./states/ce.js";
+import { DF } from "./states/df.js";
 import { ES } from "./states/es.js";
 import { GO } from "./states/go.js";
 import { MA } from "./states/ma.js";
@@ -34,9 +35,7 @@ interface StateIE {
 // Inscrição Estadual has no single national rule: each state (SEFAZ) defines
 // its own digit count and check-digit algorithm, so every UF is modeled as
 // its own module under ./states and registered here explicitly. A UF absent
-// from this map is simply not supported yet (currently only DF, whose
-// official check-digit algorithm could not be verified against a primary
-// source).
+// from this map is simply not supported yet.
 const STATES: Record<string, StateIE> = {
   AC,
   AL,
@@ -44,6 +43,7 @@ const STATES: Record<string, StateIE> = {
   AP,
   BA,
   CE,
+  DF,
   ES,
   GO,
   MA,

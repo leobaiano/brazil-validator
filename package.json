@@ -26,6 +26,10 @@
     "cpf",
     "cnpj",
     "cep",
+    "phone",
+    "email",
+    "pix",
+    "inscricao-estadual",
     "validator",
     "validation"
   ],

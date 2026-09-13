@@ -1,6 +1,6 @@
 # br-validator
 
-Uma biblioteca de validação, normalização e formatação de dados brasileiros (CPF, CNPJ e mais).
+Uma biblioteca de validação, normalização e formatação de dados brasileiros: CPF, CNPJ, CEP, telefone, e-mail, chaves PIX e Inscrição Estadual.
 
 *Read this in [English](./README.md).*
 
@@ -15,7 +15,7 @@ npm install br-validator
 ## Uso
 
 ```ts
-import { CPF, CNPJ } from "br-validator";
+import { CPF, CNPJ, CEP, Phone, Email, PIX, IE } from "br-validator";
 
 CPF.isValid("529.982.247-25"); // true
 CPF.normalize("529.982.247-25"); // "52998224725"
@@ -24,6 +24,11 @@ CPF.format("52998224725"); // "529.982.247-25"
 CNPJ.isValid("11.222.333/0001-81"); // true
 CNPJ.normalize("11.222.333/0001-81"); // "11222333000181"
 CNPJ.format("11222333000181"); // "11.222.333/0001-81"
+
+Phone.isValid("(11) 91234-5678"); // true
+Email.isValid("user@example.com"); // true
+PIX.isValid("+5511987654321"); // true
+IE.isValid("110.042.490.114", "SP"); // true
 ```
 
 ## API
@@ -40,6 +45,11 @@ Validator.format(value: string): string
 - **`normalize(value)`** — remove a formatação e retorna a representação canônica de `value`.
 - **`format(value)`** — retorna `value` na sua representação visual padrão. Se `value` tiver um comprimento inválido, é retornado sem alterações.
 
+Dois validadores estendem esse padrão por motivos específicos ao que validam:
+
+- **`IE`** (Inscrição Estadual) recebe um segundo argumento `uf` — `IE.isValid(value, uf)` — porque o algoritmo do dígito verificador é definido por estado, não nacionalmente.
+- **`PIX`** também expõe `PIX.getKeyType(value)`, já que uma chave PIX pode ser CPF, CNPJ, e-mail, telefone ou chave aleatória, e quem consome a API geralmente precisa saber qual tipo é.
+
 ## Validadores suportados
 
 | Validador | Status |
@@ -48,10 +58,10 @@ Validator.format(value: string): string
 | CNPJ (numérico) | ✅ Disponível |
 | CNPJ (alfanumérico) | ✅ Disponível |
 | CEP | ✅ Disponível |
-| Telefone | Planejado |
-| E-mail | Planejado |
-| Chave PIX | Planejado |
-| Inscrição Estadual | Planejado |
+| Telefone | ✅ Disponível |
+| E-mail | ✅ Disponível |
+| Chave PIX | ✅ Disponível |
+| Inscrição Estadual | ✅ Disponível para os 27 estados/DF |
 
 ### CPF
 
@@ -95,17 +105,79 @@ CEP.format("01310100"); // "01310-100"
 
 O CEP (Código de Endereçamento Postal) é um código de roteamento postal de 8 dígitos definido pelos Correios. Diferente de CPF/CNPJ, não possui dígito verificador — a validação aqui checa apenas a estrutura (8 dígitos), não se o código existe na base de endereços dos Correios.
 
+### Telefone
+
+```ts
+Phone.isValid("(11) 91234-5678"); // true — celular, com formatação
+Phone.isValid("11912345678"); // true — celular, sem formatação
+Phone.isValid("(11) 2345-6789"); // true — fixo
+Phone.isValid("11812345678"); // false — celular sem o nono dígito "9"
+
+Phone.normalize("(11) 91234-5678"); // "11912345678"
+Phone.format("11912345678"); // "(11) 91234-5678"
+```
+
+Apenas números nacionais são suportados (sem código de país `+55`). A validação segue o plano de numeração da Anatel: o DDD precisa ser um dos 67 códigos de fato atribuídos pela Anatel, números de celular (11 dígitos) precisam ter o "nono dígito" `9` (Resolução nº 553/2010), e números fixos (10 dígitos) precisam começar com 2-5.
+
+### E-mail
+
+```ts
+Email.isValid("user@example.com"); // true
+Email.isValid("user@example"); // false — sem TLD no domínio
+
+Email.normalize("User@Example.COM"); // "user@example.com"
+Email.format("User@Example.COM"); // "user@example.com"
+```
+
+A validação segue a expressão regular de e-mail do WHATWG HTML Living Standard (a mesma usada pelos navegadores em `<input type="email">`), além dos limites de tamanho da RFC 5321 (64 caracteres na parte local, 254 no total). Como e-mail não tem máscara visual, `format()` retorna o mesmo valor "trimado" e em minúsculas que `normalize()`.
+
+### Chave PIX
+
+```ts
+PIX.getKeyType("user@example.com"); // "EMAIL"
+PIX.getKeyType("+5511987654321"); // "PHONE"
+PIX.getKeyType("123e4567-e89b-12d3-a456-426655440000"); // "EVP"
+
+PIX.isValid("52998224725"); // true — chave CPF
+PIX.isValid("529.982.247-25"); // false — a chave do DICT do Bacen é só dígitos, sem pontuação
+
+PIX.normalize("+55 (11) 98765-4321"); // "+5511987654321"
+PIX.format("+5511987654321"); // "+55 (11) 98765-4321"
+```
+
+Uma chave PIX pode ser CPF, CNPJ (apenas numérico), e-mail, telefone ou chave aleatória ("EVP" — um UUID). `getKeyType` detecta qual é; `isValid`/`normalize`/`format` direcionam automaticamente para a regra do tipo correspondente. Verificado contra o schema do DICT do Banco Central (`bacen/pix-dict-api`) e o Manual de Padrões para Iniciação do Pix — segundo esse schema, CNPJ alfanumérico **não** é aceito atualmente como chave PIX.
+
+### Inscrição Estadual
+
+```ts
+IE.isValid("110.042.490.114", "SP"); // true
+IE.isValid("99.999.99-3", "RJ"); // true
+IE.isValid("062.307.904/0081", "MG"); // true
+
+IE.normalize("110.042.490.114", "SP"); // "110042490114"
+IE.format("110042490114", "SP"); // "110.042.490.114"
+```
+
+Inscrição Estadual não tem um algoritmo nacional — cada estado (SEFAZ) define sua própria quantidade de dígitos e cálculo de dígito verificador, então `IE` recebe um segundo argumento `uf` e cada estado é modelado como seu próprio módulo, verificado individualmente contra o "Roteiro de Crítica da Inscrição Estadual" oficial daquele estado.
+
+**UFs suportadas (todas as 27):** AC, AL, AM, AP, BA, CE, DF, ES, GO, MA, MG, MS, MT, PA, PB, PE, PI, PR, RJ, RN, RO, RR, RS, SC, SE, SP, TO.
+
+O algoritmo de cada estado foi verificado contra o espelho oficial do "Roteiro de Crítica" em `sintegra.gov.br`, com uma exceção: a página do DF lá está vazia, então seu algoritmo foi verificado cruzando duas fontes secundárias independentes que concordam entre si, com o exemplo numérico reconferido manualmente — veja `src/ie/states/df.ts` para os detalhes.
+
+**Ainda não coberto:** o formato "Produtor Rural" da IE de SP (um layout distinto `P-XXXXXXXX.X/XXX`) — só o formato padrão de 12 dígitos é suportado para SP.
+
 ## Comportamento do normalize
 
 `normalize()` produz a representação canônica (sem formatação) de um valor:
 
-- **CPF** e **CNPJ numérico** são normalizados para apenas dígitos.
+- **CPF**, **CNPJ numérico**, **CEP**, **Telefone** e **IE** são normalizados para apenas dígitos (IE mantém a quantidade exata de dígitos do estado; Telefone mantém o prefixo `+55` no caso de chave PIX).
 - **CNPJ alfanumérico** é normalizado para maiúsculas, mantendo letras e dígitos (remover apenas os não-dígitos destruiria valores alfanuméricos de CNPJ).
-- **CEP** é normalizado para apenas dígitos.
+- **E-mail** é normalizado para uma string "trimada" e em minúsculas.
+- **PIX** primeiro detecta o tipo da chave, depois delega para a regra de normalize daquele tipo (CPF/CNPJ/Email/Telefone), ou coloca em minúsculas no caso de chave aleatória (EVP).
 
 ## Comportamento do format
 
-`format()` aplica a formatação visual padrão do identificador (ex.: `529.982.247-25` para CPF, `11.222.333/0001-81` para CNPJ). Se o valor normalizado tiver comprimento inválido, `format()` retorna a entrada original sem alterações.
+`format()` aplica a formatação visual padrão do identificador (ex.: `529.982.247-25` para CPF, `11.222.333/0001-81` para CNPJ, `(11) 91234-5678` para Telefone). Se o valor normalizado tiver comprimento inválido, `format()` retorna a entrada original sem alterações. `Email.format()` é a exceção: como e-mail não tem máscara visual, retorna o mesmo valor que `Email.normalize()`.
 
 ## Comportamento de validação
 
@@ -120,6 +192,10 @@ Atualmente disponível como pacote TypeScript / JavaScript (ESM). Implementaçõ
 - [Receita Federal — Documentos técnicos do CNPJ](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/documentos-tecnicos/cnpj)
 - [Receita Federal — Perguntas e respostas sobre CNPJ Alfanumérico (PDF)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/cnpj/cnpj-alfanumerico.pdf)
 - [Correios — Guia de Endereçamento (estrutura do CEP)](https://www.correios.com.br/enviar/precisa-de-ajuda/guia-de-enderecamento/guia-de-enderecamento)
+- [Anatel — Plano de Numeração Brasileiro](https://www.gov.br/anatel/pt-br/regulado/numeracao/plano-de-numeracao-brasileiro) (lista de DDDs e estrutura do número de telefone)
+- [Anatel — Nono Dígito (Resolução nº 553/2010)](https://www.anatel.gov.br/setorregulado/nono-digito/215-numeracao/nono-digito)
+- [Banco Central — schema da API do DICT (`bacen/pix-dict-api`)](https://github.com/bacen/pix-dict-api) e o Manual de Padrões para Iniciação do Pix
+- "Roteiro de Crítica da Inscrição Estadual" de cada SEFAZ suportada, espelhado em `sintegra.gov.br/Cad_Estados/`
 
 ## Contribuindo
 
