@@ -185,7 +185,10 @@ Every state's algorithm was verified against `sintegra.gov.br`'s official "Rotei
 
 ## Supported languages
 
-Currently available as a TypeScript / JavaScript (ESM) package. Implementations for other languages are a long-term goal of the broader `br-validator` project but are not part of this package yet. The [`specification/`](./specification) directory holds language-independent test vectors (generated directly from this implementation) meant as the shared conformance suite for those future ports.
+- **TypeScript / JavaScript (ESM)** — this package.
+- **[Go](./go)** — a full port covering the same 7 validators (CPF, CNPJ, CEP, Phone, E-mail, PIX, IE for all 27 states/DF), checked against the same [`specification/`](./specification) test vectors as this implementation.
+
+Implementations for other languages (Java, C#, Ruby, PHP, Python) are a long-term goal of the broader `br-validator` project but are not part of this repository yet. The [`specification/`](./specification) directory holds language-independent test vectors (generated directly from this implementation) meant as the shared conformance suite for those future ports.
 
 ## Official references
 
