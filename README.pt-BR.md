@@ -6,13 +6,15 @@ Uma biblioteca de validação, normalização e formatação de dados brasileiro
 
 `br-validator` é um projeto open-source independente. **Não** é uma biblioteca oficial da Receita Federal, nem possui qualquer afiliação com órgãos do governo brasileiro.
 
-## Instalação
+## Instalação e uso
+
+Este repositório disponibiliza os mesmos validadores em mais de uma linguagem. Escolha a sua:
+
+### TypeScript / JavaScript
 
 ```bash
 npm install br-validator
 ```
-
-## Uso
 
 ```ts
 import { CPF, CNPJ, CEP, Phone, Email, PIX, IE } from "br-validator";
@@ -30,6 +32,45 @@ Email.isValid("user@example.com"); // true
 PIX.isValid("+5511987654321"); // true
 IE.isValid("110.042.490.114", "SP"); // true
 ```
+
+O restante deste README documenta em detalhes a API em TypeScript/JavaScript (é a implementação de referência — as demais linguagens se comportam de forma idêntica, conferidas contra os mesmos vetores de teste de [`specification/`](./specification)).
+
+### Go
+
+Ainda não publicado como release com tag, mas instalável direto deste repositório (módulos Go funcionam sobre git puro, sem precisar de registro):
+
+```bash
+go get github.com/matheuslm7/br-validator/go
+```
+
+```go
+import (
+	"github.com/matheuslm7/br-validator/go/cpf"
+	"github.com/matheuslm7/br-validator/go/ie"
+)
+
+cpf.IsValid("529.982.247-25")       // true
+ie.IsValid("110.042.490.114", "SP") // true
+```
+
+Referência completa do Go: [`go/README.md`](./go).
+
+### Python
+
+Ainda não publicado no PyPI. Instale direto do subdiretório `python/` deste repositório:
+
+```bash
+pip install "br-validator @ git+https://github.com/matheuslm7/br-validator.git#subdirectory=python"
+```
+
+```python
+from br_validator import cpf, ie
+
+cpf.is_valid("529.982.247-25")        # True
+ie.is_valid("110.042.490.114", "SP")  # True
+```
+
+Referência completa do Python: [`python/README.md`](./python).
 
 ## API
 
@@ -187,8 +228,9 @@ O algoritmo de cada estado foi verificado contra o espelho oficial do "Roteiro d
 
 - **TypeScript / JavaScript (ESM)** — este pacote.
 - **[Go](./go)** — uma porta completa cobrindo os mesmos 7 validadores (CPF, CNPJ, CEP, Telefone, E-mail, PIX, IE nos 27 estados/DF), conferida contra os mesmos vetores de teste de [`specification/`](./specification) desta implementação.
+- **[Python](./python)** — mesma cobertura do Go, também conferida contra [`specification/`](./specification).
 
-Implementações em outras linguagens (Java, C#, Ruby, PHP, Python) são um objetivo de longo prazo do projeto `br-validator` como um todo, mas ainda não fazem parte deste repositório. O diretório [`specification/`](./specification) guarda vetores de teste independentes de linguagem (gerados diretamente a partir desta implementação), pensados como a suíte de conformidade compartilhada para essas futuras portas.
+Implementações em outras linguagens (Java, C#, Ruby, PHP) são um objetivo de longo prazo do projeto `br-validator` como um todo, mas ainda não fazem parte deste repositório. O diretório [`specification/`](./specification) guarda vetores de teste independentes de linguagem (gerados diretamente a partir desta implementação), pensados como a suíte de conformidade compartilhada para essas futuras portas.
 
 ## Referências oficiais
 

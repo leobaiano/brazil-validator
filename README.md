@@ -6,13 +6,15 @@ A validation, normalization, and formatting library for Brazilian data: CPF, CNP
 
 `br-validator` is an independent open-source project. It is **not** an official Receita Federal library, nor affiliated with any Brazilian government agency.
 
-## Installation
+## Installation & usage
+
+This repository ships the same validators in more than one language. Pick yours:
+
+### TypeScript / JavaScript
 
 ```bash
 npm install br-validator
 ```
-
-## Usage
 
 ```ts
 import { CPF, CNPJ, CEP, Phone, Email, PIX, IE } from "br-validator";
@@ -30,6 +32,45 @@ Email.isValid("user@example.com"); // true
 PIX.isValid("+5511987654321"); // true
 IE.isValid("110.042.490.114", "SP"); // true
 ```
+
+The rest of this README documents the TypeScript/JavaScript API in detail (it's the reference implementation — every other language behaves identically, verified against the same [`specification/`](./specification) test vectors).
+
+### Go
+
+Not yet published as a tagged release, but installable directly from this repository (Go modules work over plain git, no registry needed):
+
+```bash
+go get github.com/matheuslm7/br-validator/go
+```
+
+```go
+import (
+	"github.com/matheuslm7/br-validator/go/cpf"
+	"github.com/matheuslm7/br-validator/go/ie"
+)
+
+cpf.IsValid("529.982.247-25")       // true
+ie.IsValid("110.042.490.114", "SP") // true
+```
+
+Full Go reference: [`go/README.md`](./go).
+
+### Python
+
+Not yet published to PyPI. Install straight from this repository's `python/` subdirectory:
+
+```bash
+pip install "br-validator @ git+https://github.com/matheuslm7/br-validator.git#subdirectory=python"
+```
+
+```python
+from br_validator import cpf, ie
+
+cpf.is_valid("529.982.247-25")        # True
+ie.is_valid("110.042.490.114", "SP")  # True
+```
+
+Full Python reference: [`python/README.md`](./python).
 
 ## API
 
@@ -187,8 +228,9 @@ Every state's algorithm was verified against `sintegra.gov.br`'s official "Rotei
 
 - **TypeScript / JavaScript (ESM)** — this package.
 - **[Go](./go)** — a full port covering the same 7 validators (CPF, CNPJ, CEP, Phone, E-mail, PIX, IE for all 27 states/DF), checked against the same [`specification/`](./specification) test vectors as this implementation.
+- **[Python](./python)** — same coverage as Go, also checked against [`specification/`](./specification).
 
-Implementations for other languages (Java, C#, Ruby, PHP, Python) are a long-term goal of the broader `br-validator` project but are not part of this repository yet. The [`specification/`](./specification) directory holds language-independent test vectors (generated directly from this implementation) meant as the shared conformance suite for those future ports.
+Implementations for other languages (Java, C#, Ruby, PHP) are a long-term goal of the broader `br-validator` project but are not part of this repository yet. The [`specification/`](./specification) directory holds language-independent test vectors (generated directly from this implementation) meant as the shared conformance suite for those future ports.
 
 ## Official references
 

@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "br-validator"
+version = "0.1.0"
+description = "Validation, normalization, and formatting for Brazilian data: CPF, CNPJ, CEP, phone numbers, e-mail, PIX keys, and Inscrição Estadual."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["brazil", "brasil", "cpf", "cnpj", "cep", "phone", "email", "pix", "inscricao-estadual", "validator", "validation"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
