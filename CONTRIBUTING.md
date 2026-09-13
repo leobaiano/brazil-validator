@@ -55,7 +55,7 @@ Run the full suite for whichever language(s) you touched before opening a PR:
 | Ruby | `bundle exec rake test` |
 | C# | `dotnet test` |
 
-Every language also has a **conformance test** that checks its behavior against [`specification/`](./specification) — the same language-independent test vectors shared by all ports. If you change behavior in the TypeScript reference implementation, regenerate the affected `specification/*/vectors.json` file from the built package (never hand-type expected outputs) and make sure every other language's conformance test still passes.
+Every language also has a **conformance test** that checks its behavior against [`specification/`](./specification) — the same language-independent test vectors shared by all ports. If you change behavior in the TypeScript reference implementation, run `npm run generate-vectors` to regenerate the affected `specification/*/vectors.json` file from the built package (never hand-type expected outputs) and make sure every other language's conformance test still passes.
 
 ## Code style
 

@@ -18,4 +18,4 @@
 - [ ] Tests added or updated (a bug fix includes a regression test)
 - [ ] The `isValid` / `normalize` / `format` pattern stays consistent with existing validators
 - [ ] Ran the test command for every language touched (see [`CONTRIBUTING.md`](../CONTRIBUTING.md#testing))
-- [ ] If TypeScript behavior changed, regenerated the affected `specification/*/vectors.json` file and re-ran every other language's conformance test
+- [ ] If TypeScript behavior changed, ran `npm run generate-vectors` and re-ran every other language's conformance test

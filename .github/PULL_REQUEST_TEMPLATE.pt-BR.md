@@ -16,4 +16,4 @@
 - [ ] Testes adicionados ou atualizados (uma correção de bug inclui um teste de regressão)
 - [ ] O padrão `isValid` / `normalize` / `format` continua consistente com os validadores existentes
 - [ ] Rodei o comando de teste de toda linguagem alterada (veja [`CONTRIBUTING.pt-BR.md`](../CONTRIBUTING.pt-BR.md#testes))
-- [ ] Se o comportamento em TypeScript mudou, regenerei o arquivo `specification/*/vectors.json` afetado e rodei de novo o teste de conformidade de toda outra linguagem
+- [ ] Se o comportamento em TypeScript mudou, rodei `npm run generate-vectors` e rodei de novo o teste de conformidade de toda outra linguagem

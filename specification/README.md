@@ -42,7 +42,13 @@ Two validators extend this schema, matching the extra arguments/fields their Typ
 
 ## Regenerating
 
-There is no regeneration script yet — vectors were produced by a one-off script that imports the built package (`dist/`) and calls each validator directly, so they can never drift from hand-typed expectations. If you add a validator or change behavior, regenerate its file the same way: call the real implementation, don't hand-write expected outputs.
+```bash
+npm run generate-vectors
+```
+
+This builds the package and runs [`scripts/generate-vectors.mjs`](../scripts/generate-vectors.mjs), which imports `dist/` and calls each validator directly for every `input` (and `uf`, for IE) already on file, then rewrites `valid`/`normalized`/`formatted`/`keyType` from the real result. Vectors can never drift from hand-typed expectations this way.
+
+To add a new vector, hand-write just the `input` (and `uf` for IE) into the relevant `vectors.json`, with placeholder values for the rest — then run the command above to fill in the real ones.
 
 ## Contributing
 

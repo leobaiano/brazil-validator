@@ -55,7 +55,7 @@ Rode a suíte completa da(s) linguagem(ns) que você alterou antes de abrir uma 
 | Ruby | `bundle exec rake test` |
 | C# | `dotnet test` |
 
-Toda linguagem também tem um **teste de conformidade** que checa seu comportamento contra [`specification/`](./specification) — os mesmos vetores de teste independentes de linguagem compartilhados por todas as implementações. Se você mudar o comportamento da implementação de referência em TypeScript, regenere o arquivo `specification/*/vectors.json` afetado a partir do pacote já compilado (nunca digite os resultados esperados manualmente) e garanta que o teste de conformidade de toda outra linguagem continue passando.
+Toda linguagem também tem um **teste de conformidade** que checa seu comportamento contra [`specification/`](./specification) — os mesmos vetores de teste independentes de linguagem compartilhados por todas as implementações. Se você mudar o comportamento da implementação de referência em TypeScript, rode `npm run generate-vectors` para regenerar o arquivo `specification/*/vectors.json` afetado a partir do pacote já compilado (nunca digite os resultados esperados manualmente) e garanta que o teste de conformidade de toda outra linguagem continue passando.
 
 ## Estilo de código
 

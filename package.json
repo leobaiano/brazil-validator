@@ -27,7 +27,8 @@
     "build": "tsc",
     "test": "vitest run",
     "dev": "tsx",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "generate-vectors": "npm run build && node scripts/generate-vectors.mjs"
   },
   "keywords": [
     "brazil",

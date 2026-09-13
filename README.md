@@ -24,6 +24,7 @@ A validation, normalization, and formatting library for Brazilian data: CPF, CNP
 - [Supported languages](#supported-languages)
 - [Official references](#official-references)
 - [Contributing](#contributing)
+- [Changelog](#changelog)
 - [License](#license)
 
 ## Quick start
@@ -350,6 +351,10 @@ Contributions are welcome — bug reports, new official regression vectors, fixe
 Found a Brazilian document or key that this library validates incorrectly? [Open an issue](https://github.com/matheuslm7/brazil-validator/issues) with the input and what you expected — that's one of the most valuable contributions this project can get.
 
 See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full guide: coding conventions, how to run each language's tests, and — most importantly — the rule that any Brazilian government/fiscal rule must be verified against an official source before it goes in.
+
+## Changelog
+
+See [`CHANGELOG.md`](./CHANGELOG.md) for release history across all six language ports.
 
 ## License
 
