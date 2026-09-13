@@ -1,0 +1,35 @@
+name: New validator or language port
+description: Propose a new Brazilian identifier to validate, or a new language port
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please open this before investing significant work, so we can agree on scope and idioms first. Issues in Portuguese are welcome too.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What are you proposing?
+      options:
+        - A new Brazilian identifier/validator (e.g. Título de Eleitor, RENAVAM, CNH)
+        - A port to a language not yet supported (e.g. PHP)
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What is it, and why would it belong in this library?
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Official source
+      description: For a new validator, a link to the official rule (Receita Federal, TSE, DENATRAN, etc.) is required before implementation can start — see CONTRIBUTING.md.
+    validations:
+      required: false

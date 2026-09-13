@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Contributing guide
+    url: https://github.com/matheuslm7/brazil-validator/blob/master/CONTRIBUTING.md
+    about: Read this before opening a PR — coding conventions, test commands, and the rule that Brazilian government/fiscal rules must cite an official source.

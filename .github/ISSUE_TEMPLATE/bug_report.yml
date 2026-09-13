@@ -1,0 +1,87 @@
+name: Bug report
+description: A validator returns a wrong isValid/normalize/format result
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug — wrong results on real Brazilian rules are exactly what this project most needs to catch. Issues in Portuguese are welcome too.
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      options:
+        - TypeScript / JavaScript
+        - Go
+        - Python
+        - Java
+        - Ruby
+        - C#
+    validations:
+      required: true
+
+  - type: dropdown
+    id: validator
+    attributes:
+      label: Validator
+      options:
+        - CPF
+        - CNPJ (numeric)
+        - CNPJ (alphanumeric)
+        - CEP
+        - Phone
+        - E-mail
+        - PIX
+        - Inscrição Estadual (IE)
+        - Other / not sure
+    validations:
+      required: true
+
+  - type: input
+    id: uf
+    attributes:
+      label: UF (state), if this is about Inscrição Estadual
+      placeholder: "e.g. SP"
+    validations:
+      required: false
+
+  - type: textarea
+    id: input-value
+    attributes:
+      label: Input value
+      description: The value you passed to isValid/normalize/format. A synthetic example that reproduces the bug is fine — no need to share a real person's document.
+      placeholder: "e.g. 529.982.247-25"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: What isValid/normalize/format should have returned.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: What it actually returned.
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Official source (if you have one)
+      description: A link or reference to Receita Federal, Banco Central, Anatel, Correios, or the relevant SEFAZ documentation. Not required to file the issue, but speeds up a fix a lot.
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+    validations:
+      required: false
