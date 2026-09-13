@@ -37,7 +37,7 @@ Every validator, in every language, follows the same three functions: `isValid`,
 | Python | `pip install brazil-validator` |
 | Ruby | `gem install brazil-validator` |
 | C# | `dotnet add package brazil-validator` |
-| Java | not yet on Maven Central — see [Java](#java) below |
+| Java | see the Maven snippet in [Java](#java) below |
 
 Then jump to your language's section below for a copy-pasteable usage example.
 
@@ -109,12 +109,14 @@ Full Python reference: [`python/README.md`](./python).
 
 ### Java
 
-Not yet published to Maven Central. Build and install into your local Maven repository:
+Published on [Maven Central](https://central.sonatype.com/artifact/io.github.matheuslm7/brazil-validator):
 
-```bash
-git clone https://github.com/matheuslm7/brazil-validator.git
-cd brazil-validator/java
-mvn install
+```xml
+<dependency>
+  <groupId>io.github.matheuslm7</groupId>
+  <artifactId>brazil-validator</artifactId>
+  <version>0.1.0</version>
+</dependency>
 ```
 
 ```java

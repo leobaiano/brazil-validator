@@ -14,15 +14,7 @@ ClassName.format(String value) -> String
 
 ## Installation
 
-Not yet published to Maven Central. Build and install into your local repository:
-
-```bash
-git clone https://github.com/matheuslm7/brazil-validator.git
-cd brazil-validator/java
-mvn install
-```
-
-Then add it as a dependency:
+Published on [Maven Central](https://central.sonatype.com/artifact/io.github.matheuslm7/brazil-validator):
 
 ```xml
 <dependency>
