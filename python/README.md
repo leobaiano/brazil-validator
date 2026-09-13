@@ -14,10 +14,10 @@ module.format(value: str) -> str
 
 ## Installation
 
-Not yet published to PyPI. Install straight from this repository's `python/` subdirectory:
+Published on [PyPI](https://pypi.org/project/brazil-validator/):
 
 ```bash
-pip install "brazil-validator @ git+https://github.com/matheuslm7/brazil-validator.git#subdirectory=python"
+pip install brazil-validator
 ```
 
 *(the PyPI distribution name is `brazil-validator`, but — like `beautifulsoup4`/`bs4` or `python-dateutil`/`dateutil` — the importable package keeps its original name, `br_validator`)*

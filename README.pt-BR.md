@@ -37,10 +37,10 @@ O restante deste README documenta em detalhes a API em TypeScript/JavaScript (é
 
 ### Go
 
-Ainda não publicado como release com tag, mas instalável direto deste repositório (módulos Go funcionam sobre git puro, sem precisar de registro):
+Publicado como módulo com tag — o Go resolve direto via Git usando o [proxy.golang.org](https://pkg.go.dev/github.com/matheuslm7/brazil-validator/go), sem precisar de um registro separado:
 
 ```bash
-go get github.com/matheuslm7/brazil-validator/go
+go get github.com/matheuslm7/brazil-validator/go@v0.1.0
 ```
 
 ```go
@@ -57,10 +57,10 @@ Referência completa do Go: [`go/README.md`](./go).
 
 ### Python
 
-Ainda não publicado no PyPI. Instale direto do subdiretório `python/` deste repositório:
+Publicado no [PyPI](https://pypi.org/project/brazil-validator/):
 
 ```bash
-pip install "brazil-validator @ git+https://github.com/matheuslm7/brazil-validator.git#subdirectory=python"
+pip install brazil-validator
 ```
 
 ```python
@@ -94,10 +94,16 @@ Referência completa do Java: [`java/README.md`](./java).
 
 ### Ruby
 
-Ainda não publicado no RubyGems. Adicione direto deste repositório no seu `Gemfile`:
+Publicado no [RubyGems](https://rubygems.org/gems/brazil-validator):
+
+```bash
+gem install brazil-validator
+```
+
+Ou adicione no seu `Gemfile`:
 
 ```ruby
-gem "brazil-validator", git: "https://github.com/matheuslm7/brazil-validator.git", glob: "ruby/*.gemspec"
+gem "brazil-validator", "~> 0.1"
 ```
 
 ```ruby
@@ -111,11 +117,10 @@ Referência completa do Ruby: [`ruby/README.md`](./ruby).
 
 ### C#
 
-Ainda não publicado no NuGet. Clone e referencie o projeto direto:
+Publicado no [NuGet](https://www.nuget.org/packages/brazil-validator):
 
 ```bash
-git clone https://github.com/matheuslm7/brazil-validator.git
-dotnet add SeuProjeto.csproj reference brazil-validator/csharp/src/BrValidator/BrValidator.csproj
+dotnet add package brazil-validator
 ```
 
 ```csharp

@@ -16,19 +16,16 @@ Two adaptations to Ruby convention: `is_valid?` carries the idiomatic `?` suffix
 
 ## Installation
 
-Not yet published to RubyGems. Add it straight from this repository to your `Gemfile`:
-
-```ruby
-gem "brazil-validator", git: "https://github.com/matheuslm7/brazil-validator.git", glob: "ruby/*.gemspec"
-```
-
-Or clone and build it locally:
+Published on [RubyGems](https://rubygems.org/gems/brazil-validator):
 
 ```bash
-git clone https://github.com/matheuslm7/brazil-validator.git
-cd brazil-validator/ruby
-gem build brazil-validator.gemspec
-gem install ./brazil-validator-0.1.0.gem
+gem install brazil-validator
+```
+
+Or add to your `Gemfile`:
+
+```ruby
+gem "brazil-validator", "~> 0.1"
 ```
 
 *(the gem is published as `brazil-validator`, but the require path keeps its original name: `require "br_validator"` — a gem's published name and its require path don't have to match, e.g. the `activesupport` gem is required as `active_support`)*

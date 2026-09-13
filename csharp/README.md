@@ -14,18 +14,10 @@ ClassName.Format(string value) // -> string
 
 ## Installation
 
-Not yet published to NuGet. Build and reference the project directly:
+Published on [NuGet](https://www.nuget.org/packages/brazil-validator):
 
 ```bash
-git clone https://github.com/matheuslm7/brazil-validator.git
-dotnet add YourProject.csproj reference brazil-validator/csharp/src/BrValidator/BrValidator.csproj
-```
-
-Or pack it into a local NuGet package:
-
-```bash
-cd brazil-validator/csharp/src/BrValidator
-dotnet pack
+dotnet add package brazil-validator
 ```
 
 *(the NuGet PackageId is `brazil-validator`, but the C# namespace keeps its original name: `BrValidator` — a NuGet package's id and its namespace don't have to match)*

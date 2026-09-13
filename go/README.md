@@ -14,8 +14,10 @@ package.Format(value string) string
 
 ## Installation
 
+Published as a tagged module (resolved by Go directly from Git via [proxy.golang.org](https://pkg.go.dev/github.com/matheuslm7/brazil-validator/go), no separate registry involved):
+
 ```bash
-go get github.com/matheuslm7/brazil-validator/go
+go get github.com/matheuslm7/brazil-validator/go@v0.1.0
 ```
 
 ## Usage
