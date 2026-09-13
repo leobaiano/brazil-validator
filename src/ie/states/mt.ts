@@ -1,0 +1,41 @@
+import { removeNonDigits } from "../../shared/normalize.js";
+import { weightedSum, mod11CheckDigit } from "../../shared/mod11.js";
+
+// Verified against the official SEFAZ-MT "Roteiro de Crítica da Inscrição
+// Estadual" (sintegra.gov.br/Cad_Estados/cad_MT.html), including its worked
+// example (0013000001-9). Format: 10 digits + 1 check digit.
+const WEIGHTS = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+
+function normalize(value: string): string {
+  return removeNonDigits(value);
+}
+
+function isValid(value: string): boolean {
+  if (!/^[\d\-\s]+$/.test(value)) {
+    return false;
+  }
+
+  const ie = normalize(value);
+
+  if (ie.length !== 11) {
+    return false;
+  }
+
+  return mod11CheckDigit(weightedSum(ie, WEIGHTS)) === Number(ie[10]);
+}
+
+function format(value: string): string {
+  const ie = normalize(value);
+
+  if (ie.length !== 11) {
+    return value;
+  }
+
+  return ie.replace(/^(\d{10})(\d)$/, "$1-$2");
+}
+
+export const MT = {
+  isValid,
+  normalize,
+  format,
+};
