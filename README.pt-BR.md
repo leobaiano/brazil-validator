@@ -109,6 +109,25 @@ BrValidator::Ie.is_valid?("110.042.490.114", "SP") # true
 
 Referência completa do Ruby: [`ruby/README.md`](./ruby).
 
+### C#
+
+Ainda não publicado no NuGet. Clone e referencie o projeto direto:
+
+```bash
+git clone https://github.com/matheuslm7/br-validator.git
+dotnet add SeuProjeto.csproj reference br-validator/csharp/src/BrValidator/BrValidator.csproj
+```
+
+```csharp
+using BrValidator;
+using BrValidator.Ie;
+
+Cpf.IsValid("529.982.247-25");       // true
+Ie.IsValid("110.042.490.114", "SP"); // true
+```
+
+Referência completa do C#: [`csharp/README.md`](./csharp).
+
 ## API
 
 Todo validador da biblioteca segue o mesmo padrão conceitual:
@@ -268,8 +287,9 @@ O algoritmo de cada estado foi verificado contra o espelho oficial do "Roteiro d
 - **[Python](./python)** — mesma cobertura do Go, também conferida contra [`specification/`](./specification).
 - **[Java](./java)** — mesma cobertura, também conferida contra [`specification/`](./specification).
 - **[Ruby](./ruby)** — mesma cobertura, também conferida contra [`specification/`](./specification).
+- **[C#](./csharp)** — mesma cobertura, também conferida contra [`specification/`](./specification).
 
-Implementações em outras linguagens (C#, PHP) são um objetivo de longo prazo do projeto `br-validator` como um todo, mas ainda não fazem parte deste repositório. O diretório [`specification/`](./specification) guarda vetores de teste independentes de linguagem (gerados diretamente a partir desta implementação), pensados como a suíte de conformidade compartilhada para essas futuras portas.
+Implementações em outras linguagens (PHP) são um objetivo de longo prazo do projeto `br-validator` como um todo, mas ainda não fazem parte deste repositório. O diretório [`specification/`](./specification) guarda vetores de teste independentes de linguagem (gerados diretamente a partir desta implementação), pensados como a suíte de conformidade compartilhada para essas futuras portas.
 
 ## Referências oficiais
 

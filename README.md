@@ -109,6 +109,25 @@ BrValidator::Ie.is_valid?("110.042.490.114", "SP") # true
 
 Full Ruby reference: [`ruby/README.md`](./ruby).
 
+### C#
+
+Not yet published to NuGet. Clone and reference the project directly:
+
+```bash
+git clone https://github.com/matheuslm7/br-validator.git
+dotnet add YourProject.csproj reference br-validator/csharp/src/BrValidator/BrValidator.csproj
+```
+
+```csharp
+using BrValidator;
+using BrValidator.Ie;
+
+Cpf.IsValid("529.982.247-25");       // true
+Ie.IsValid("110.042.490.114", "SP"); // true
+```
+
+Full C# reference: [`csharp/README.md`](./csharp).
+
 ## API
 
 Every validator in this library follows the same conceptual pattern:
@@ -268,8 +287,9 @@ Every state's algorithm was verified against `sintegra.gov.br`'s official "Rotei
 - **[Python](./python)** — same coverage as Go, also checked against [`specification/`](./specification).
 - **[Java](./java)** — same coverage, also checked against [`specification/`](./specification).
 - **[Ruby](./ruby)** — same coverage, also checked against [`specification/`](./specification).
+- **[C#](./csharp)** — same coverage, also checked against [`specification/`](./specification).
 
-Implementations for other languages (C#, PHP) are a long-term goal of the broader `br-validator` project but are not part of this repository yet. The [`specification/`](./specification) directory holds language-independent test vectors (generated directly from this implementation) meant as the shared conformance suite for those future ports.
+Implementations for other languages (PHP) are a long-term goal of the broader `br-validator` project but are not part of this repository yet. The [`specification/`](./specification) directory holds language-independent test vectors (generated directly from this implementation) meant as the shared conformance suite for those future ports.
 
 ## Official references
 

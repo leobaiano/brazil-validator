@@ -15,3 +15,8 @@ target/
 /ruby/Gemfile.lock
 /ruby/pkg/
 *.gem
+
+# C# / .NET
+csharp/**/bin/
+csharp/**/obj/
+*.user
