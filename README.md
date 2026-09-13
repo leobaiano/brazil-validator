@@ -1,5 +1,6 @@
 # brazil-validator
 
+[![CI](https://github.com/matheuslm7/brazil-validator/actions/workflows/ci.yml/badge.svg)](https://github.com/matheuslm7/brazil-validator/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/brazil-validator?label=npm)](https://www.npmjs.com/package/brazil-validator)
 [![PyPI](https://img.shields.io/pypi/v/brazil-validator?label=PyPI)](https://pypi.org/project/brazil-validator/)
 [![RubyGems](https://img.shields.io/gem/v/brazil-validator?label=RubyGems)](https://rubygems.org/gems/brazil-validator)
