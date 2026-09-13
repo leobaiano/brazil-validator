@@ -164,7 +164,7 @@ Inscrição Estadual has no national algorithm — each state (SEFAZ) defines it
 
 Every state's algorithm was verified against `sintegra.gov.br`'s official "Roteiro de Crítica" mirror, with one exception: DF's page there is empty, so its algorithm was instead cross-verified against two independent secondary sources that agree with each other and whose worked example was re-checked by hand — see `src/ie/states/df.ts` for details.
 
-**Not yet covered:** SP's "Produtor Rural" IE format (a distinct `P-XXXXXXXX.X/XXX` layout) — only the standard 12-digit format is supported for SP.
+`IE.isValid(value, "SP")` accepts both of SP's formats automatically: the standard 12-digit format and the "Produtor Rural" format (`P-01100424.3/002`, for rural producers not equiparated to a company), the same way `CNPJ` accepts both numeric and alphanumeric values.
 
 ## Normalize behavior
 

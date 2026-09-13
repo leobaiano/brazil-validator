@@ -164,7 +164,7 @@ Inscrição Estadual não tem um algoritmo nacional — cada estado (SEFAZ) defi
 
 O algoritmo de cada estado foi verificado contra o espelho oficial do "Roteiro de Crítica" em `sintegra.gov.br`, com uma exceção: a página do DF lá está vazia, então seu algoritmo foi verificado cruzando duas fontes secundárias independentes que concordam entre si, com o exemplo numérico reconferido manualmente — veja `src/ie/states/df.ts` para os detalhes.
 
-**Ainda não coberto:** o formato "Produtor Rural" da IE de SP (um layout distinto `P-XXXXXXXX.X/XXX`) — só o formato padrão de 12 dígitos é suportado para SP.
+`IE.isValid(value, "SP")` aceita automaticamente os dois formatos de SP: o padrão de 12 dígitos e o formato "Produtor Rural" (`P-01100424.3/002`, para produtores rurais não equiparados a empresa), da mesma forma que `CNPJ` aceita tanto valores numéricos quanto alfanuméricos.
 
 ## Comportamento do normalize
 

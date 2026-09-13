@@ -55,6 +55,10 @@ const OFFICIAL_VECTORS: Array<[string, string]> = [
   ["DF", "0730000100109"],
 ];
 
+// SP's "Produtor Rural" format is deliberately excluded from this list: its
+// last 3 digits are explicitly unused in the check-digit calculation, so
+// flipLastDigit() below would not actually invalidate it. It has its own
+// dedicated tests instead (see the SP describe block).
 function flipLastDigit(value: string): string {
   const lastDigit = Number(value[value.length - 1]);
 
@@ -90,6 +94,34 @@ describe("IE", () => {
 
       it("should reject an SP IE with letters", () => {
         expect(IE.isValid("11004249011A", "SP")).toBe(false);
+      });
+
+      // Official "Produtor Rural" worked example. The source's own
+      // restatement of this example ("P-011000424.3/002", 14 characters)
+      // contradicts its "13 caracteres" rule and its own calculation, so it
+      // is treated as a typo — see src/ie/states/sp.ts.
+      it("should accept the official Produtor Rural example with formatting", () => {
+        expect(IE.isValid("P-01100424.3/002", "SP")).toBe(true);
+      });
+
+      it("should accept the official Produtor Rural example without formatting", () => {
+        expect(IE.isValid("P011004243002", "SP")).toBe(true);
+      });
+
+      it("should accept a lowercase 'p' for a Produtor Rural IE", () => {
+        expect(IE.isValid("p-01100424.3/002", "SP")).toBe(true);
+      });
+
+      it("should reject a Produtor Rural IE with a wrong check digit", () => {
+        expect(IE.isValid("P-01100424.4/002", "SP")).toBe(false);
+      });
+
+      it("should reject a Produtor Rural IE missing the fixed '0' after P", () => {
+        expect(IE.isValid("P-11100424.3/002", "SP")).toBe(false);
+      });
+
+      it("should reject a Produtor Rural IE with incorrect length", () => {
+        expect(IE.isValid("P-0110042.3/002", "SP")).toBe(false);
       });
     });
 
@@ -489,6 +521,10 @@ describe("IE", () => {
       expect(IE.normalize("110.042.490.114", "SP")).toBe("110042490114");
     });
 
+    it("should remove formatting from a Produtor Rural SP IE and uppercase the P", () => {
+      expect(IE.normalize("p-01100424.3/002", "SP")).toBe("P011004243002");
+    });
+
     it("should remove formatting from an RJ IE", () => {
       expect(IE.normalize("99.999.99-3", "RJ")).toBe("99999993");
     });
@@ -517,6 +553,10 @@ describe("IE", () => {
   describe("format", () => {
     it("should format a normalized SP IE", () => {
       expect(IE.format("110042490114", "SP")).toBe("110.042.490.114");
+    });
+
+    it("should format a normalized Produtor Rural SP IE", () => {
+      expect(IE.format("P011004243002", "SP")).toBe("P-01100424.3/002");
     });
 
     it("should format a normalized RJ IE", () => {
