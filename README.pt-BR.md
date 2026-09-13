@@ -92,6 +92,23 @@ Ie.isValid("110.042.490.114", "SP"); // true
 
 Referência completa do Java: [`java/README.md`](./java).
 
+### Ruby
+
+Ainda não publicado no RubyGems. Adicione direto deste repositório no seu `Gemfile`:
+
+```ruby
+gem "br-validator", git: "https://github.com/matheuslm7/br-validator.git", glob: "ruby/*.gemspec"
+```
+
+```ruby
+require "br_validator"
+
+BrValidator::Cpf.is_valid?("529.982.247-25")       # true
+BrValidator::Ie.is_valid?("110.042.490.114", "SP") # true
+```
+
+Referência completa do Ruby: [`ruby/README.md`](./ruby).
+
 ## API
 
 Todo validador da biblioteca segue o mesmo padrão conceitual:
@@ -250,8 +267,9 @@ O algoritmo de cada estado foi verificado contra o espelho oficial do "Roteiro d
 - **[Go](./go)** — uma porta completa cobrindo os mesmos 7 validadores (CPF, CNPJ, CEP, Telefone, E-mail, PIX, IE nos 27 estados/DF), conferida contra os mesmos vetores de teste de [`specification/`](./specification) desta implementação.
 - **[Python](./python)** — mesma cobertura do Go, também conferida contra [`specification/`](./specification).
 - **[Java](./java)** — mesma cobertura, também conferida contra [`specification/`](./specification).
+- **[Ruby](./ruby)** — mesma cobertura, também conferida contra [`specification/`](./specification).
 
-Implementações em outras linguagens (C#, Ruby, PHP) são um objetivo de longo prazo do projeto `br-validator` como um todo, mas ainda não fazem parte deste repositório. O diretório [`specification/`](./specification) guarda vetores de teste independentes de linguagem (gerados diretamente a partir desta implementação), pensados como a suíte de conformidade compartilhada para essas futuras portas.
+Implementações em outras linguagens (C#, PHP) são um objetivo de longo prazo do projeto `br-validator` como um todo, mas ainda não fazem parte deste repositório. O diretório [`specification/`](./specification) guarda vetores de teste independentes de linguagem (gerados diretamente a partir desta implementação), pensados como a suíte de conformidade compartilhada para essas futuras portas.
 
 ## Referências oficiais
 

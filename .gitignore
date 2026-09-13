@@ -10,3 +10,8 @@ build/
 # Java / Maven
 target/
 *.class
+
+# Ruby
+/ruby/Gemfile.lock
+/ruby/pkg/
+*.gem
