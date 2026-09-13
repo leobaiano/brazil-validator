@@ -66,3 +66,7 @@ go vet ./...
 gofmt -l .   # should print nothing
 go test ./...
 ```
+
+## Contributing
+
+Bug reports, official regression vectors, and fixes are welcome — see the root [`CONTRIBUTING.md`](../CONTRIBUTING.md) for guidelines (in particular: any Brazilian government/fiscal rule needs a cited official source).

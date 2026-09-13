@@ -1,10 +1,44 @@
 # brazil-validator
 
-A validation, normalization, and formatting library for Brazilian data: CPF, CNPJ, CEP, phone numbers, e-mail, PIX keys, and Inscrição Estadual.
+[![npm](https://img.shields.io/npm/v/brazil-validator?label=npm)](https://www.npmjs.com/package/brazil-validator)
+[![PyPI](https://img.shields.io/pypi/v/brazil-validator?label=PyPI)](https://pypi.org/project/brazil-validator/)
+[![RubyGems](https://img.shields.io/gem/v/brazil-validator?label=RubyGems)](https://rubygems.org/gems/brazil-validator)
+[![NuGet](https://img.shields.io/nuget/v/brazil-validator?label=NuGet)](https://www.nuget.org/packages/brazil-validator)
+[![Go Reference](https://pkg.go.dev/badge/github.com/matheuslm7/brazil-validator/go.svg)](https://pkg.go.dev/github.com/matheuslm7/brazil-validator/go)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
+A validation, normalization, and formatting library for Brazilian data: CPF, CNPJ, CEP, phone numbers, e-mail, PIX keys, and Inscrição Estadual — available in TypeScript, Go, Python, Java, Ruby, and C#.
 
 *Leia em [português (pt-BR)](./README.pt-BR.md).*
 
 `brazil-validator` is an independent open-source project. It is **not** an official Receita Federal library, nor affiliated with any Brazilian government agency.
+
+## Contents
+
+- [Quick start](#quick-start)
+- [Installation & usage](#installation--usage) (per language)
+- [API](#api)
+- [Supported validators](#supported-validators)
+- [Normalize / format / validation behavior](#normalize-behavior)
+- [Supported languages](#supported-languages)
+- [Official references](#official-references)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Quick start
+
+Every validator, in every language, follows the same three functions: `isValid`, `normalize`, `format` (spelled per each language's own convention). Pick your language and install it:
+
+| Language | Install |
+| --- | --- |
+| TypeScript / JavaScript | `npm install brazil-validator` |
+| Go | `go get github.com/matheuslm7/brazil-validator/go@v0.1.0` |
+| Python | `pip install brazil-validator` |
+| Ruby | `gem install brazil-validator` |
+| C# | `dotnet add package brazil-validator` |
+| Java | not yet on Maven Central — see [Java](#java) below |
+
+Then jump to your language's section below for a copy-pasteable usage example.
 
 ## Installation & usage
 
@@ -308,12 +342,11 @@ Implementations for other languages (PHP) are a long-term goal of the broader `b
 
 ## Contributing
 
-Contributions are welcome. Please:
+Contributions are welcome — bug reports, new official regression vectors, fixes, docs, and new language ports.
 
-1. Add tests for any new validator or bug fix.
-2. Verify Brazilian government/fiscal rules against an official source before implementing them.
-3. Keep the `isValid` / `normalize` / `format` API pattern consistent with existing validators.
-4. Run `npm run build && npm test` before submitting changes.
+Found a Brazilian document or key that this library validates incorrectly? [Open an issue](https://github.com/matheuslm7/brazil-validator/issues) with the input and what you expected — that's one of the most valuable contributions this project can get.
+
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full guide: coding conventions, how to run each language's tests, and — most importantly — the rule that any Brazilian government/fiscal rule must be verified against an official source before it goes in.
 
 ## License
 

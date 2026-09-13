@@ -1,10 +1,44 @@
 # brazil-validator
 
-Uma biblioteca de validação, normalização e formatação de dados brasileiros: CPF, CNPJ, CEP, telefone, e-mail, chaves PIX e Inscrição Estadual.
+[![npm](https://img.shields.io/npm/v/brazil-validator?label=npm)](https://www.npmjs.com/package/brazil-validator)
+[![PyPI](https://img.shields.io/pypi/v/brazil-validator?label=PyPI)](https://pypi.org/project/brazil-validator/)
+[![RubyGems](https://img.shields.io/gem/v/brazil-validator?label=RubyGems)](https://rubygems.org/gems/brazil-validator)
+[![NuGet](https://img.shields.io/nuget/v/brazil-validator?label=NuGet)](https://www.nuget.org/packages/brazil-validator)
+[![Go Reference](https://pkg.go.dev/badge/github.com/matheuslm7/brazil-validator/go.svg)](https://pkg.go.dev/github.com/matheuslm7/brazil-validator/go)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
+Uma biblioteca de validação, normalização e formatação de dados brasileiros: CPF, CNPJ, CEP, telefone, e-mail, chaves PIX e Inscrição Estadual — disponível em TypeScript, Go, Python, Java, Ruby e C#.
 
 *Read this in [English](./README.md).*
 
 `brazil-validator` é um projeto open-source independente. **Não** é uma biblioteca oficial da Receita Federal, nem possui qualquer afiliação com órgãos do governo brasileiro.
+
+## Sumário
+
+- [Começando rápido](#começando-rápido)
+- [Instalação e uso](#instalação-e-uso) (por linguagem)
+- [API](#api)
+- [Validadores suportados](#validadores-suportados)
+- [Comportamento de normalize / format / validação](#comportamento-do-normalize)
+- [Linguagens suportadas](#linguagens-suportadas)
+- [Referências oficiais](#referências-oficiais)
+- [Como contribuir](#como-contribuir)
+- [Licença](#licença)
+
+## Começando rápido
+
+Todo validador, em toda linguagem, segue as mesmas três funções: `isValid`, `normalize`, `format` (com a grafia de cada linguagem). Escolha sua linguagem e instale:
+
+| Linguagem | Instalação |
+| --- | --- |
+| TypeScript / JavaScript | `npm install brazil-validator` |
+| Go | `go get github.com/matheuslm7/brazil-validator/go@v0.1.0` |
+| Python | `pip install brazil-validator` |
+| Ruby | `gem install brazil-validator` |
+| C# | `dotnet add package brazil-validator` |
+| Java | ainda não está no Maven Central — veja [Java](#java) abaixo |
+
+Depois vá até a seção da sua linguagem abaixo para um exemplo de uso pronto para copiar.
 
 ## Instalação e uso
 
@@ -306,14 +340,13 @@ Implementações em outras linguagens (PHP) são um objetivo de longo prazo do p
 - [Banco Central — schema da API do DICT (`bacen/pix-dict-api`)](https://github.com/bacen/pix-dict-api) e o Manual de Padrões para Iniciação do Pix
 - "Roteiro de Crítica da Inscrição Estadual" de cada SEFAZ suportada, espelhado em `sintegra.gov.br/Cad_Estados/`
 
-## Contribuindo
+## Como contribuir
 
-Contribuições são bem-vindas. Por favor:
+Contribuições são bem-vindas — relatos de bug, novos vetores de regressão oficiais, correções, documentação e novas linguagens.
 
-1. Adicione testes para qualquer novo validador ou correção de bug.
-2. Verifique regras fiscais/governamentais brasileiras em uma fonte oficial antes de implementá-las.
-3. Mantenha o padrão de API `isValid` / `normalize` / `format` consistente com os validadores existentes.
-4. Rode `npm run build && npm test` antes de enviar alterações.
+Encontrou um documento ou chave brasileira que a biblioteca valida errado? [Abra uma issue](https://github.com/matheuslm7/brazil-validator/issues) com o valor de entrada e o resultado esperado — essa é uma das contribuições mais valiosas que esse projeto pode receber.
+
+Veja o [`CONTRIBUTING.pt-BR.md`](./CONTRIBUTING.pt-BR.md) para o guia completo: convenções de código, como rodar os testes de cada linguagem e — o mais importante — a regra de que toda regra fiscal/governamental brasileira precisa ser verificada em uma fonte oficial antes de entrar no código.
 
 ## Licença
 

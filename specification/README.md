@@ -43,3 +43,7 @@ Two validators extend this schema, matching the extra arguments/fields their Typ
 ## Regenerating
 
 There is no regeneration script yet — vectors were produced by a one-off script that imports the built package (`dist/`) and calls each validator directly, so they can never drift from hand-typed expectations. If you add a validator or change behavior, regenerate its file the same way: call the real implementation, don't hand-write expected outputs.
+
+## Contributing
+
+Adding a well-sourced regression vector here (with an official reference) strengthens every language port at once. See the root [`CONTRIBUTING.md`](../CONTRIBUTING.md) for guidelines.
