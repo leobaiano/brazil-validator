@@ -1,0 +1,51 @@
+[
+  {
+    "input": "52998224725",
+    "keyType": "CPF",
+    "valid": true,
+    "normalized": "52998224725",
+    "formatted": "529.982.247-25"
+  },
+  {
+    "input": "11222333000181",
+    "keyType": "CNPJ",
+    "valid": true,
+    "normalized": "11222333000181",
+    "formatted": "11.222.333/0001-81"
+  },
+  {
+    "input": "user@example.com",
+    "keyType": "EMAIL",
+    "valid": true,
+    "normalized": "user@example.com",
+    "formatted": "user@example.com"
+  },
+  {
+    "input": "+5511987654321",
+    "keyType": "PHONE",
+    "valid": true,
+    "normalized": "+5511987654321",
+    "formatted": "+55 (11) 98765-4321"
+  },
+  {
+    "input": "123e4567-e89b-12d3-a456-426655440000",
+    "keyType": "EVP",
+    "valid": true,
+    "normalized": "123e4567-e89b-12d3-a456-426655440000",
+    "formatted": "123e4567-e89b-12d3-a456-426655440000"
+  },
+  {
+    "input": "529.982.247-25",
+    "keyType": null,
+    "valid": false,
+    "normalized": "529.982.247-25",
+    "formatted": "529.982.247-25"
+  },
+  {
+    "input": "not-a-pix-key",
+    "keyType": null,
+    "valid": false,
+    "normalized": "not-a-pix-key",
+    "formatted": "not-a-pix-key"
+  }
+]

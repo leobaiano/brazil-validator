@@ -185,7 +185,7 @@ Every state's algorithm was verified against `sintegra.gov.br`'s official "Rotei
 
 ## Supported languages
 
-Currently available as a TypeScript / JavaScript (ESM) package. Implementations for other languages are a long-term goal of the broader `br-validator` project but are not part of this package yet.
+Currently available as a TypeScript / JavaScript (ESM) package. Implementations for other languages are a long-term goal of the broader `br-validator` project but are not part of this package yet. The [`specification/`](./specification) directory holds language-independent test vectors (generated directly from this implementation) meant as the shared conformance suite for those future ports.
 
 ## Official references
 

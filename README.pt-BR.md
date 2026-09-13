@@ -185,7 +185,7 @@ O algoritmo de cada estado foi verificado contra o espelho oficial do "Roteiro d
 
 ## Linguagens suportadas
 
-Atualmente disponível como pacote TypeScript / JavaScript (ESM). Implementações em outras linguagens são um objetivo de longo prazo do projeto `br-validator` como um todo, mas ainda não fazem parte deste pacote.
+Atualmente disponível como pacote TypeScript / JavaScript (ESM). Implementações em outras linguagens são um objetivo de longo prazo do projeto `br-validator` como um todo, mas ainda não fazem parte deste pacote. O diretório [`specification/`](./specification) guarda vetores de teste independentes de linguagem (gerados diretamente a partir desta implementação), pensados como a suíte de conformidade compartilhada para essas futuras portas.
 
 ## Referências oficiais
 

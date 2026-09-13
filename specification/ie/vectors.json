@@ -1,0 +1,51 @@
+[
+  {
+    "input": "110.042.490.114",
+    "uf": "SP",
+    "valid": true,
+    "normalized": "110042490114",
+    "formatted": "110.042.490.114"
+  },
+  {
+    "input": "99.999.99-3",
+    "uf": "RJ",
+    "valid": true,
+    "normalized": "99999993",
+    "formatted": "99.999.99-3"
+  },
+  {
+    "input": "062.307.904/0081",
+    "uf": "MG",
+    "valid": true,
+    "normalized": "0623079040081",
+    "formatted": "062.307.904/0081"
+  },
+  {
+    "input": "P-01100424.3/002",
+    "uf": "SP",
+    "valid": true,
+    "normalized": "P011004243002",
+    "formatted": "P-01100424.3/002"
+  },
+  {
+    "input": "07.300.001.001-09",
+    "uf": "DF",
+    "valid": true,
+    "normalized": "0730000100109",
+    "formatted": "07.300.001.001-09"
+  },
+  {
+    "input": "110042491114",
+    "uf": "SP",
+    "valid": false,
+    "normalized": "110042491114",
+    "formatted": "110.042.491.114"
+  },
+  {
+    "input": "110042490114",
+    "uf": "XX",
+    "valid": false,
+    "normalized": "110042490114",
+    "formatted": "110042490114"
+  }
+]

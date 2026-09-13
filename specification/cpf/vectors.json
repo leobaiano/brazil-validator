@@ -1,0 +1,44 @@
+[
+  {
+    "input": "529.982.247-25",
+    "valid": true,
+    "normalized": "52998224725",
+    "formatted": "529.982.247-25"
+  },
+  {
+    "input": "52998224725",
+    "valid": true,
+    "normalized": "52998224725",
+    "formatted": "529.982.247-25"
+  },
+  {
+    "input": "111.444.777-35",
+    "valid": true,
+    "normalized": "11144477735",
+    "formatted": "111.444.777-35"
+  },
+  {
+    "input": "111.111.111-11",
+    "valid": false,
+    "normalized": "11111111111",
+    "formatted": "111.111.111-11"
+  },
+  {
+    "input": "529.982.247-26",
+    "valid": false,
+    "normalized": "52998224726",
+    "formatted": "529.982.247-26"
+  },
+  {
+    "input": "123456789",
+    "valid": false,
+    "normalized": "123456789",
+    "formatted": "123456789"
+  },
+  {
+    "input": "529abc982xyz247-25",
+    "valid": false,
+    "normalized": "52998224725",
+    "formatted": "529.982.247-25"
+  }
+]

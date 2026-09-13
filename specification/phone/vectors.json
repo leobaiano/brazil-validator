@@ -1,0 +1,38 @@
+[
+  {
+    "input": "(11) 91234-5678",
+    "valid": true,
+    "normalized": "11912345678",
+    "formatted": "(11) 91234-5678"
+  },
+  {
+    "input": "11912345678",
+    "valid": true,
+    "normalized": "11912345678",
+    "formatted": "(11) 91234-5678"
+  },
+  {
+    "input": "(11) 2345-6789",
+    "valid": true,
+    "normalized": "1123456789",
+    "formatted": "(11) 2345-6789"
+  },
+  {
+    "input": "11812345678",
+    "valid": false,
+    "normalized": "11812345678",
+    "formatted": "(11) 81234-5678"
+  },
+  {
+    "input": "(00) 91234-5678",
+    "valid": false,
+    "normalized": "00912345678",
+    "formatted": "(00) 91234-5678"
+  },
+  {
+    "input": "111234567",
+    "valid": false,
+    "normalized": "111234567",
+    "formatted": "111234567"
+  }
+]

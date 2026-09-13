@@ -1,0 +1,32 @@
+[
+  {
+    "input": "01310-100",
+    "valid": true,
+    "normalized": "01310100",
+    "formatted": "01310-100"
+  },
+  {
+    "input": "01310100",
+    "valid": true,
+    "normalized": "01310100",
+    "formatted": "01310-100"
+  },
+  {
+    "input": "11111-111",
+    "valid": true,
+    "normalized": "11111111",
+    "formatted": "11111-111"
+  },
+  {
+    "input": "0131010",
+    "valid": false,
+    "normalized": "0131010",
+    "formatted": "0131010"
+  },
+  {
+    "input": "abcde-fgh",
+    "valid": false,
+    "normalized": "",
+    "formatted": "abcde-fgh"
+  }
+]

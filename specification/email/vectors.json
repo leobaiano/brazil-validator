@@ -1,0 +1,32 @@
+[
+  {
+    "input": "user@example.com",
+    "valid": true,
+    "normalized": "user@example.com",
+    "formatted": "user@example.com"
+  },
+  {
+    "input": "User@Example.COM",
+    "valid": true,
+    "normalized": "user@example.com",
+    "formatted": "user@example.com"
+  },
+  {
+    "input": "user@example",
+    "valid": false,
+    "normalized": "user@example",
+    "formatted": "user@example"
+  },
+  {
+    "input": "user@@example.com",
+    "valid": false,
+    "normalized": "user@@example.com",
+    "formatted": "user@@example.com"
+  },
+  {
+    "input": "",
+    "valid": false,
+    "normalized": "",
+    "formatted": ""
+  }
+]

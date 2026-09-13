@@ -1,0 +1,38 @@
+[
+  {
+    "input": "11.222.333/0001-81",
+    "valid": true,
+    "normalized": "11222333000181",
+    "formatted": "11.222.333/0001-81"
+  },
+  {
+    "input": "11222333000181",
+    "valid": true,
+    "normalized": "11222333000181",
+    "formatted": "11.222.333/0001-81"
+  },
+  {
+    "input": "12.ABC.345/01DE-35",
+    "valid": true,
+    "normalized": "12ABC34501DE35",
+    "formatted": "12.ABC.345/01DE-35"
+  },
+  {
+    "input": "12ABC34501DE35",
+    "valid": true,
+    "normalized": "12ABC34501DE35",
+    "formatted": "12.ABC.345/01DE-35"
+  },
+  {
+    "input": "11.222.333/0001-82",
+    "valid": false,
+    "normalized": "11222333000182",
+    "formatted": "11.222.333/0001-82"
+  },
+  {
+    "input": "11.222.333/@001-81",
+    "valid": false,
+    "normalized": "11222333@00181",
+    "formatted": "11.222.333/@001-81"
+  }
+]
