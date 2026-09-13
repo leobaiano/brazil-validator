@@ -72,6 +72,26 @@ ie.is_valid("110.042.490.114", "SP")  # True
 
 Full Python reference: [`python/README.md`](./python).
 
+### Java
+
+Not yet published to Maven Central. Build and install into your local Maven repository:
+
+```bash
+git clone https://github.com/matheuslm7/br-validator.git
+cd br-validator/java
+mvn install
+```
+
+```java
+import io.github.matheuslm7.brvalidator.Cpf;
+import io.github.matheuslm7.brvalidator.ie.Ie;
+
+Cpf.isValid("529.982.247-25");       // true
+Ie.isValid("110.042.490.114", "SP"); // true
+```
+
+Full Java reference: [`java/README.md`](./java).
+
 ## API
 
 Every validator in this library follows the same conceptual pattern:
@@ -229,8 +249,9 @@ Every state's algorithm was verified against `sintegra.gov.br`'s official "Rotei
 - **TypeScript / JavaScript (ESM)** — this package.
 - **[Go](./go)** — a full port covering the same 7 validators (CPF, CNPJ, CEP, Phone, E-mail, PIX, IE for all 27 states/DF), checked against the same [`specification/`](./specification) test vectors as this implementation.
 - **[Python](./python)** — same coverage as Go, also checked against [`specification/`](./specification).
+- **[Java](./java)** — same coverage, also checked against [`specification/`](./specification).
 
-Implementations for other languages (Java, C#, Ruby, PHP) are a long-term goal of the broader `br-validator` project but are not part of this repository yet. The [`specification/`](./specification) directory holds language-independent test vectors (generated directly from this implementation) meant as the shared conformance suite for those future ports.
+Implementations for other languages (C#, Ruby, PHP) are a long-term goal of the broader `br-validator` project but are not part of this repository yet. The [`specification/`](./specification) directory holds language-independent test vectors (generated directly from this implementation) meant as the shared conformance suite for those future ports.
 
 ## Official references
 
