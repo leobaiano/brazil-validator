@@ -3,7 +3,7 @@ package phone_test
 import (
 	"testing"
 
-	"github.com/matheuslm7/br-validator/go/phone"
+	"github.com/matheuslm7/brazil-validator/go/phone"
 )
 
 func TestIsValid(t *testing.T) {

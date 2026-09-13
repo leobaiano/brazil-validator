@@ -1,10 +1,10 @@
-# br-validator
+# brazil-validator
 
 A validation, normalization, and formatting library for Brazilian data: CPF, CNPJ, CEP, phone numbers, e-mail, PIX keys, and Inscrição Estadual.
 
 *Leia em [português (pt-BR)](./README.pt-BR.md).*
 
-`br-validator` is an independent open-source project. It is **not** an official Receita Federal library, nor affiliated with any Brazilian government agency.
+`brazil-validator` is an independent open-source project. It is **not** an official Receita Federal library, nor affiliated with any Brazilian government agency.
 
 ## Installation & usage
 
@@ -13,11 +13,11 @@ This repository ships the same validators in more than one language. Pick yours:
 ### TypeScript / JavaScript
 
 ```bash
-npm install br-validator
+npm install brazil-validator
 ```
 
 ```ts
-import { CPF, CNPJ, CEP, Phone, Email, PIX, IE } from "br-validator";
+import { CPF, CNPJ, CEP, Phone, Email, PIX, IE } from "brazil-validator";
 
 CPF.isValid("529.982.247-25"); // true
 CPF.normalize("529.982.247-25"); // "52998224725"
@@ -40,13 +40,13 @@ The rest of this README documents the TypeScript/JavaScript API in detail (it's 
 Not yet published as a tagged release, but installable directly from this repository (Go modules work over plain git, no registry needed):
 
 ```bash
-go get github.com/matheuslm7/br-validator/go
+go get github.com/matheuslm7/brazil-validator/go
 ```
 
 ```go
 import (
-	"github.com/matheuslm7/br-validator/go/cpf"
-	"github.com/matheuslm7/br-validator/go/ie"
+	"github.com/matheuslm7/brazil-validator/go/cpf"
+	"github.com/matheuslm7/brazil-validator/go/ie"
 )
 
 cpf.IsValid("529.982.247-25")       // true
@@ -60,7 +60,7 @@ Full Go reference: [`go/README.md`](./go).
 Not yet published to PyPI. Install straight from this repository's `python/` subdirectory:
 
 ```bash
-pip install "br-validator @ git+https://github.com/matheuslm7/br-validator.git#subdirectory=python"
+pip install "brazil-validator @ git+https://github.com/matheuslm7/brazil-validator.git#subdirectory=python"
 ```
 
 ```python
@@ -77,8 +77,8 @@ Full Python reference: [`python/README.md`](./python).
 Not yet published to Maven Central. Build and install into your local Maven repository:
 
 ```bash
-git clone https://github.com/matheuslm7/br-validator.git
-cd br-validator/java
+git clone https://github.com/matheuslm7/brazil-validator.git
+cd brazil-validator/java
 mvn install
 ```
 
@@ -97,7 +97,7 @@ Full Java reference: [`java/README.md`](./java).
 Not yet published to RubyGems. Add it straight from this repository to your `Gemfile`:
 
 ```ruby
-gem "br-validator", git: "https://github.com/matheuslm7/br-validator.git", glob: "ruby/*.gemspec"
+gem "brazil-validator", git: "https://github.com/matheuslm7/brazil-validator.git", glob: "ruby/*.gemspec"
 ```
 
 ```ruby
@@ -114,8 +114,8 @@ Full Ruby reference: [`ruby/README.md`](./ruby).
 Not yet published to NuGet. Clone and reference the project directly:
 
 ```bash
-git clone https://github.com/matheuslm7/br-validator.git
-dotnet add YourProject.csproj reference br-validator/csharp/src/BrValidator/BrValidator.csproj
+git clone https://github.com/matheuslm7/brazil-validator.git
+dotnet add YourProject.csproj reference brazil-validator/csharp/src/BrValidator/BrValidator.csproj
 ```
 
 ```csharp
@@ -289,7 +289,7 @@ Every state's algorithm was verified against `sintegra.gov.br`'s official "Rotei
 - **[Ruby](./ruby)** — same coverage, also checked against [`specification/`](./specification).
 - **[C#](./csharp)** — same coverage, also checked against [`specification/`](./specification).
 
-Implementations for other languages (PHP) are a long-term goal of the broader `br-validator` project but are not part of this repository yet. The [`specification/`](./specification) directory holds language-independent test vectors (generated directly from this implementation) meant as the shared conformance suite for those future ports.
+Implementations for other languages (PHP) are a long-term goal of the broader `brazil-validator` project but are not part of this repository yet. The [`specification/`](./specification) directory holds language-independent test vectors (generated directly from this implementation) meant as the shared conformance suite for those future ports.
 
 ## Official references
 

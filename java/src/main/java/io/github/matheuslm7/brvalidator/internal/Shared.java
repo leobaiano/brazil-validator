@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 /**
  * Small helpers reused by more than one validator.
  *
- * <p>This package is not part of the public API of br-validator: it holds
+ * <p>This package is not part of the public API of brazil-validator: it holds
  * implementation details shared across validators, not a stable contract.
  */
 public final class Shared {

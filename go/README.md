@@ -1,4 +1,4 @@
-# br-validator (Go)
+# brazil-validator (Go)
 
 A validation, normalization, and formatting package for Brazilian data: CPF, CNPJ, CEP, phone numbers, e-mail, PIX keys, and Inscrição Estadual.
 
@@ -15,17 +15,17 @@ package.Format(value string) string
 ## Installation
 
 ```bash
-go get github.com/matheuslm7/br-validator/go
+go get github.com/matheuslm7/brazil-validator/go
 ```
 
 ## Usage
 
 ```go
 import (
-	"github.com/matheuslm7/br-validator/go/cpf"
-	"github.com/matheuslm7/br-validator/go/cnpj"
-	"github.com/matheuslm7/br-validator/go/ie"
-	"github.com/matheuslm7/br-validator/go/pix"
+	"github.com/matheuslm7/brazil-validator/go/cpf"
+	"github.com/matheuslm7/brazil-validator/go/cnpj"
+	"github.com/matheuslm7/brazil-validator/go/ie"
+	"github.com/matheuslm7/brazil-validator/go/pix"
 )
 
 cpf.IsValid("529.982.247-25")      // true
@@ -54,7 +54,7 @@ See the [main README](../README.md) for the full behavior reference (official so
 
 ## Conformance
 
-`go/conformance` tests this implementation against [`specification/`](../specification), the language-independent test vectors generated from the TypeScript implementation. If those tests pass, this port behaves identically to TypeScript for every vector on file.
+`go/conformance` tests this implementation against [`specification/`](../specification), the language-independent test vectors generated from the TypeScript implementation. If those tests pass, this port behaves identically to TypeScript (and to the [Python](../python), [Java](../java), [Ruby](../ruby), and [C#](../csharp) ports) for every vector on file.
 
 ## Development
 

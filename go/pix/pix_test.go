@@ -3,7 +3,7 @@ package pix_test
 import (
 	"testing"
 
-	"github.com/matheuslm7/br-validator/go/pix"
+	"github.com/matheuslm7/brazil-validator/go/pix"
 )
 
 func TestGetKeyType(t *testing.T) {

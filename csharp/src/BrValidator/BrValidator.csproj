@@ -6,12 +6,12 @@
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
 
-    <PackageId>BrValidator</PackageId>
+    <PackageId>brazil-validator</PackageId>
     <Version>0.1.0</Version>
     <Authors>Matheus</Authors>
     <Description>Validation, normalization, and formatting for Brazilian data: CPF, CNPJ, CEP, phone numbers, e-mail, PIX keys, and Inscrição Estadual.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/matheuslm7/br-validator</RepositoryUrl>
+    <RepositoryUrl>https://github.com/matheuslm7/brazil-validator</RepositoryUrl>
   </PropertyGroup>
 
 </Project>

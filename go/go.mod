@@ -1,3 +1,3 @@
-module github.com/matheuslm7/br-validator/go
+module github.com/matheuslm7/brazil-validator/go
 
 go 1.18

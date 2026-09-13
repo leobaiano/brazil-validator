@@ -10,13 +10,13 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/matheuslm7/br-validator/go/cep"
-	"github.com/matheuslm7/br-validator/go/cnpj"
-	"github.com/matheuslm7/br-validator/go/cpf"
-	"github.com/matheuslm7/br-validator/go/email"
-	"github.com/matheuslm7/br-validator/go/ie"
-	"github.com/matheuslm7/br-validator/go/phone"
-	"github.com/matheuslm7/br-validator/go/pix"
+	"github.com/matheuslm7/brazil-validator/go/cep"
+	"github.com/matheuslm7/brazil-validator/go/cnpj"
+	"github.com/matheuslm7/brazil-validator/go/cpf"
+	"github.com/matheuslm7/brazil-validator/go/email"
+	"github.com/matheuslm7/brazil-validator/go/ie"
+	"github.com/matheuslm7/brazil-validator/go/phone"
+	"github.com/matheuslm7/brazil-validator/go/pix"
 )
 
 type simpleVector struct {

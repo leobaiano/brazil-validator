@@ -1,10 +1,10 @@
-# br-validator
+# brazil-validator
 
 Uma biblioteca de validação, normalização e formatação de dados brasileiros: CPF, CNPJ, CEP, telefone, e-mail, chaves PIX e Inscrição Estadual.
 
 *Read this in [English](./README.md).*
 
-`br-validator` é um projeto open-source independente. **Não** é uma biblioteca oficial da Receita Federal, nem possui qualquer afiliação com órgãos do governo brasileiro.
+`brazil-validator` é um projeto open-source independente. **Não** é uma biblioteca oficial da Receita Federal, nem possui qualquer afiliação com órgãos do governo brasileiro.
 
 ## Instalação e uso
 
@@ -13,11 +13,11 @@ Este repositório disponibiliza os mesmos validadores em mais de uma linguagem. 
 ### TypeScript / JavaScript
 
 ```bash
-npm install br-validator
+npm install brazil-validator
 ```
 
 ```ts
-import { CPF, CNPJ, CEP, Phone, Email, PIX, IE } from "br-validator";
+import { CPF, CNPJ, CEP, Phone, Email, PIX, IE } from "brazil-validator";
 
 CPF.isValid("529.982.247-25"); // true
 CPF.normalize("529.982.247-25"); // "52998224725"
@@ -40,13 +40,13 @@ O restante deste README documenta em detalhes a API em TypeScript/JavaScript (é
 Ainda não publicado como release com tag, mas instalável direto deste repositório (módulos Go funcionam sobre git puro, sem precisar de registro):
 
 ```bash
-go get github.com/matheuslm7/br-validator/go
+go get github.com/matheuslm7/brazil-validator/go
 ```
 
 ```go
 import (
-	"github.com/matheuslm7/br-validator/go/cpf"
-	"github.com/matheuslm7/br-validator/go/ie"
+	"github.com/matheuslm7/brazil-validator/go/cpf"
+	"github.com/matheuslm7/brazil-validator/go/ie"
 )
 
 cpf.IsValid("529.982.247-25")       // true
@@ -60,7 +60,7 @@ Referência completa do Go: [`go/README.md`](./go).
 Ainda não publicado no PyPI. Instale direto do subdiretório `python/` deste repositório:
 
 ```bash
-pip install "br-validator @ git+https://github.com/matheuslm7/br-validator.git#subdirectory=python"
+pip install "brazil-validator @ git+https://github.com/matheuslm7/brazil-validator.git#subdirectory=python"
 ```
 
 ```python
@@ -77,8 +77,8 @@ Referência completa do Python: [`python/README.md`](./python).
 Ainda não publicado no Maven Central. Compile e instale no seu repositório Maven local:
 
 ```bash
-git clone https://github.com/matheuslm7/br-validator.git
-cd br-validator/java
+git clone https://github.com/matheuslm7/brazil-validator.git
+cd brazil-validator/java
 mvn install
 ```
 
@@ -97,7 +97,7 @@ Referência completa do Java: [`java/README.md`](./java).
 Ainda não publicado no RubyGems. Adicione direto deste repositório no seu `Gemfile`:
 
 ```ruby
-gem "br-validator", git: "https://github.com/matheuslm7/br-validator.git", glob: "ruby/*.gemspec"
+gem "brazil-validator", git: "https://github.com/matheuslm7/brazil-validator.git", glob: "ruby/*.gemspec"
 ```
 
 ```ruby
@@ -114,8 +114,8 @@ Referência completa do Ruby: [`ruby/README.md`](./ruby).
 Ainda não publicado no NuGet. Clone e referencie o projeto direto:
 
 ```bash
-git clone https://github.com/matheuslm7/br-validator.git
-dotnet add SeuProjeto.csproj reference br-validator/csharp/src/BrValidator/BrValidator.csproj
+git clone https://github.com/matheuslm7/brazil-validator.git
+dotnet add SeuProjeto.csproj reference brazil-validator/csharp/src/BrValidator/BrValidator.csproj
 ```
 
 ```csharp
@@ -289,7 +289,7 @@ O algoritmo de cada estado foi verificado contra o espelho oficial do "Roteiro d
 - **[Ruby](./ruby)** — mesma cobertura, também conferida contra [`specification/`](./specification).
 - **[C#](./csharp)** — mesma cobertura, também conferida contra [`specification/`](./specification).
 
-Implementações em outras linguagens (PHP) são um objetivo de longo prazo do projeto `br-validator` como um todo, mas ainda não fazem parte deste repositório. O diretório [`specification/`](./specification) guarda vetores de teste independentes de linguagem (gerados diretamente a partir desta implementação), pensados como a suíte de conformidade compartilhada para essas futuras portas.
+Implementações em outras linguagens (PHP) são um objetivo de longo prazo do projeto `brazil-validator` como um todo, mas ainda não fazem parte deste repositório. O diretório [`specification/`](./specification) guarda vetores de teste independentes de linguagem (gerados diretamente a partir desta implementação), pensados como a suíte de conformidade compartilhada para essas futuras portas.
 
 ## Referências oficiais
 

@@ -3,7 +3,7 @@ package cep_test
 import (
 	"testing"
 
-	"github.com/matheuslm7/br-validator/go/cep"
+	"github.com/matheuslm7/brazil-validator/go/cep"
 )
 
 func TestIsValid(t *testing.T) {

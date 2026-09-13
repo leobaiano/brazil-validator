@@ -1,4 +1,4 @@
-# br-validator (Java)
+# brazil-validator (Java)
 
 A validation, normalization, and formatting library for Brazilian data: CPF, CNPJ, CEP, phone numbers, e-mail, PIX keys, and Inscrição Estadual.
 
@@ -17,8 +17,8 @@ ClassName.format(String value) -> String
 Not yet published to Maven Central. Build and install into your local repository:
 
 ```bash
-git clone https://github.com/matheuslm7/br-validator.git
-cd br-validator/java
+git clone https://github.com/matheuslm7/brazil-validator.git
+cd brazil-validator/java
 mvn install
 ```
 
@@ -27,10 +27,12 @@ Then add it as a dependency:
 ```xml
 <dependency>
   <groupId>io.github.matheuslm7</groupId>
-  <artifactId>br-validator</artifactId>
+  <artifactId>brazil-validator</artifactId>
   <version>0.1.0</version>
 </dependency>
 ```
+
+*(the Maven artifactId is `brazil-validator`, but the Java package keeps its original name: `io.github.matheuslm7.brvalidator` — a library's artifactId and its package name don't have to match, e.g. Guava's artifactId is `guava` but its package is `com.google.common`)*
 
 ## Usage
 
@@ -66,7 +68,7 @@ See the [main README](../README.md) for the full behavior reference (official so
 
 ## Conformance
 
-`ConformanceTest` checks this implementation against [`specification/`](../specification), the language-independent test vectors generated from the TypeScript implementation. If it passes, this port behaves identically to TypeScript (and to the [Go](../go) and [Python](../python) ports) for every vector on file. It's the only place this library pulls in a dependency (`org.json`, test-scope only, to parse the vector files) — the library itself has zero runtime dependencies.
+`ConformanceTest` checks this implementation against [`specification/`](../specification), the language-independent test vectors generated from the TypeScript implementation. If it passes, this port behaves identically to TypeScript (and to the [Go](../go), [Python](../python), [Ruby](../ruby), and [C#](../csharp) ports) for every vector on file. It's the only place this library pulls in a dependency (`org.json`, test-scope only, to parse the vector files) — the library itself has zero runtime dependencies.
 
 ## Development
 

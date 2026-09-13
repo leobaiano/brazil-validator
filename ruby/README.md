@@ -1,4 +1,4 @@
-# br-validator (Ruby)
+# brazil-validator (Ruby)
 
 A validation, normalization, and formatting gem for Brazilian data: CPF, CNPJ, CEP, phone numbers, e-mail, PIX keys, and Inscrição Estadual.
 
@@ -19,17 +19,19 @@ Two adaptations to Ruby convention: `is_valid?` carries the idiomatic `?` suffix
 Not yet published to RubyGems. Add it straight from this repository to your `Gemfile`:
 
 ```ruby
-gem "br-validator", git: "https://github.com/matheuslm7/br-validator.git", glob: "ruby/*.gemspec"
+gem "brazil-validator", git: "https://github.com/matheuslm7/brazil-validator.git", glob: "ruby/*.gemspec"
 ```
 
 Or clone and build it locally:
 
 ```bash
-git clone https://github.com/matheuslm7/br-validator.git
-cd br-validator/ruby
-gem build br-validator.gemspec
-gem install ./br-validator-0.1.0.gem
+git clone https://github.com/matheuslm7/brazil-validator.git
+cd brazil-validator/ruby
+gem build brazil-validator.gemspec
+gem install ./brazil-validator-0.1.0.gem
 ```
+
+*(the gem is published as `brazil-validator`, but the require path keeps its original name: `require "br_validator"` — a gem's published name and its require path don't have to match, e.g. the `activesupport` gem is required as `active_support`)*
 
 ## Usage
 
@@ -62,7 +64,7 @@ See the [main README](../README.md) for the full behavior reference (official so
 
 ## Conformance
 
-`test/conformance_test.rb` checks this implementation against [`specification/`](../specification), the language-independent test vectors generated from the TypeScript implementation. If it passes, this port behaves identically to TypeScript (and to the [Go](../go), [Python](../python), and [Java](../java) ports) for every vector on file.
+`test/conformance_test.rb` checks this implementation against [`specification/`](../specification), the language-independent test vectors generated from the TypeScript implementation. If it passes, this port behaves identically to TypeScript (and to the [Go](../go), [Python](../python), [Java](../java), and [C#](../csharp) ports) for every vector on file.
 
 ## Development
 

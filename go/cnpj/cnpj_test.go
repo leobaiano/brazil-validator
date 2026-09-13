@@ -3,7 +3,7 @@ package cnpj_test
 import (
 	"testing"
 
-	"github.com/matheuslm7/br-validator/go/cnpj"
+	"github.com/matheuslm7/brazil-validator/go/cnpj"
 )
 
 func TestIsValidNumeric(t *testing.T) {

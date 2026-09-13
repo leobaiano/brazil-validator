@@ -1,4 +1,4 @@
-# br-validator (Python)
+# brazil-validator (Python)
 
 A validation, normalization, and formatting package for Brazilian data: CPF, CNPJ, CEP, phone numbers, e-mail, PIX keys, and Inscrição Estadual.
 
@@ -17,8 +17,10 @@ module.format(value: str) -> str
 Not yet published to PyPI. Install straight from this repository's `python/` subdirectory:
 
 ```bash
-pip install "br-validator @ git+https://github.com/matheuslm7/br-validator.git#subdirectory=python"
+pip install "brazil-validator @ git+https://github.com/matheuslm7/brazil-validator.git#subdirectory=python"
 ```
+
+*(the PyPI distribution name is `brazil-validator`, but — like `beautifulsoup4`/`bs4` or `python-dateutil`/`dateutil` — the importable package keeps its original name, `br_validator`)*
 
 ## Usage
 
@@ -51,7 +53,7 @@ See the [main README](../README.md) for the full behavior reference (official so
 
 ## Conformance
 
-`tests/test_conformance.py` checks this implementation against [`specification/`](../specification), the language-independent test vectors generated from the TypeScript implementation. If those tests pass, this port behaves identically to TypeScript (and to the [Go port](../go)) for every vector on file.
+`tests/test_conformance.py` checks this implementation against [`specification/`](../specification), the language-independent test vectors generated from the TypeScript implementation. If those tests pass, this port behaves identically to TypeScript (and to the [Go](../go), [Java](../java), [Ruby](../ruby), and [C#](../csharp) ports) for every vector on file.
 
 ## Development
 

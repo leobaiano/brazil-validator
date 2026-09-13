@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/matheuslm7/br-validator/go/ie"
+	"github.com/matheuslm7/brazil-validator/go/ie"
 )
 
 type vector struct {

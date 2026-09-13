@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/matheuslm7/br-validator/go/internal/shared"
+	"github.com/matheuslm7/brazil-validator/go/internal/shared"
 )
 
 var allowedChars = regexp.MustCompile(`^[\d\s()-]+$`)

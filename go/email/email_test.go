@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/matheuslm7/br-validator/go/email"
+	"github.com/matheuslm7/brazil-validator/go/email"
 )
 
 func TestIsValid(t *testing.T) {

@@ -3,7 +3,7 @@ package ie
 import (
 	"regexp"
 
-	"github.com/matheuslm7/br-validator/go/internal/shared"
+	"github.com/matheuslm7/brazil-validator/go/internal/shared"
 )
 
 // SEFAZ-DF's own Sintegra "Roteiro de Crítica" page

@@ -3,7 +3,7 @@
 module BrValidator
   # Small helpers reused by more than one validator.
   #
-  # Not part of the public API of br-validator: this module holds
+  # Not part of the public API of brazil-validator: this module holds
   # implementation details shared across validators, not a stable contract.
   module Shared
     module_function

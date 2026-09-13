@@ -3,7 +3,7 @@ package cpf_test
 import (
 	"testing"
 
-	"github.com/matheuslm7/br-validator/go/cpf"
+	"github.com/matheuslm7/brazil-validator/go/cpf"
 )
 
 func TestIsValid(t *testing.T) {

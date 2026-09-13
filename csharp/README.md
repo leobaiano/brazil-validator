@@ -1,4 +1,4 @@
-# br-validator (C#)
+# brazil-validator (C#)
 
 A validation, normalization, and formatting library for Brazilian data: CPF, CNPJ, CEP, phone numbers, e-mail, PIX keys, and Inscrição Estadual.
 
@@ -17,16 +17,18 @@ ClassName.Format(string value) // -> string
 Not yet published to NuGet. Build and reference the project directly:
 
 ```bash
-git clone https://github.com/matheuslm7/br-validator.git
-dotnet add YourProject.csproj reference br-validator/csharp/src/BrValidator/BrValidator.csproj
+git clone https://github.com/matheuslm7/brazil-validator.git
+dotnet add YourProject.csproj reference brazil-validator/csharp/src/BrValidator/BrValidator.csproj
 ```
 
 Or pack it into a local NuGet package:
 
 ```bash
-cd br-validator/csharp/src/BrValidator
+cd brazil-validator/csharp/src/BrValidator
 dotnet pack
 ```
+
+*(the NuGet PackageId is `brazil-validator`, but the C# namespace keeps its original name: `BrValidator` — a NuGet package's id and its namespace don't have to match)*
 
 ## Usage
 

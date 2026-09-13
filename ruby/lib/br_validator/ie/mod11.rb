@@ -6,7 +6,7 @@ module BrValidator
     # Crítica" documents): weight each digit, sum the products, then
     # reduce modulo 11.
     #
-    # Not part of the public API of br-validator.
+    # Not part of the public API of brazil-validator.
     module Mod11
       module_function
 

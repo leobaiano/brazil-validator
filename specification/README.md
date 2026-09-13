@@ -1,6 +1,6 @@
-# br-validator specification
+# brazil-validator specification
 
-Language-independent test vectors for the validators implemented by `br-validator`. This is the foundation described in the project's long-term multi-language goal: every future language implementation (Go, Java, C#, Ruby, PHP, Python, ...) is expected to produce the same `valid` / `normalized` / `formatted` results for the same `input`, so this directory is the shared source of truth to test each of them against.
+Language-independent test vectors for the validators implemented by `brazil-validator`. This is the foundation described in the project's long-term multi-language goal: every language implementation (TypeScript, Go, Python, Java, Ruby, C#, and PHP once it exists) is expected to produce the same `valid` / `normalized` / `formatted` results for the same `input`, so this directory is the shared source of truth to test each of them against.
 
 These vectors were generated directly from the current TypeScript implementation (`src/`), not hand-typed, so they reflect its actual behavior exactly. They are a representative sample for each validator — covering a valid formatted input, a valid unformatted input, and a few invalid cases (wrong check digit, wrong length, unexpected characters) — not an exhaustive dump of every test case in `tests/`.
 

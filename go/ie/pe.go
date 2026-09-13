@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"strconv"
 
-	"github.com/matheuslm7/br-validator/go/internal/shared"
+	"github.com/matheuslm7/brazil-validator/go/internal/shared"
 )
 
 // Verified against the official SEFAZ-PE "Roteiro de Crítica da Inscrição

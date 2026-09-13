@@ -5,13 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.matheuslm7</groupId>
-  <artifactId>br-validator</artifactId>
+  <artifactId>brazil-validator</artifactId>
   <version>0.1.0</version>
   <packaging>jar</packaging>
 
-  <name>br-validator</name>
+  <name>brazil-validator</name>
   <description>Validation, normalization, and formatting for Brazilian data: CPF, CNPJ, CEP, phone numbers, e-mail, PIX keys, and Inscrição Estadual.</description>
-  <url>https://github.com/matheuslm7/br-validator</url>
+  <url>https://github.com/matheuslm7/brazil-validator</url>
 
   <licenses>
     <license>

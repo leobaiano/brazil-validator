@@ -3,14 +3,14 @@
 require_relative "lib/br_validator/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "br-validator"
+  spec.name = "brazil-validator"
   spec.version = BrValidator::VERSION
   spec.authors = ["Matheus"]
 
   spec.summary = "Validation, normalization, and formatting for Brazilian data."
   spec.description = "CPF, CNPJ, CEP, phone numbers, e-mail, PIX keys, and Inscrição " \
                       "Estadual validators for Ruby."
-  spec.homepage = "https://github.com/matheuslm7/br-validator"
+  spec.homepage = "https://github.com/matheuslm7/brazil-validator"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0"
 

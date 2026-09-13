@@ -6,11 +6,11 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/matheuslm7/br-validator/go/cnpj"
-	"github.com/matheuslm7/br-validator/go/cpf"
-	"github.com/matheuslm7/br-validator/go/email"
-	"github.com/matheuslm7/br-validator/go/internal/shared"
-	"github.com/matheuslm7/br-validator/go/phone"
+	"github.com/matheuslm7/brazil-validator/go/cnpj"
+	"github.com/matheuslm7/brazil-validator/go/cpf"
+	"github.com/matheuslm7/brazil-validator/go/email"
+	"github.com/matheuslm7/brazil-validator/go/internal/shared"
+	"github.com/matheuslm7/brazil-validator/go/phone"
 )
 
 // KeyType identifies which kind of PIX key a value looks like.
