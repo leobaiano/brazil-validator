@@ -31,4 +31,4 @@ jobs:
         env:
           TOKEN: ${{ secrets.PHP_SPLIT_TOKEN }}
         run: |
-          git push "https://x-access-token:${TOKEN}@github.com/matheuslm7/brazil-validator-php.git" php-split:main --force
+          git push "https://x-access-token:${TOKEN}@github.com/matheuslm7/brazil-validator-php.git" php-split:master --force
