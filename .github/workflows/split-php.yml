@@ -1,0 +1,33 @@
+name: Split PHP package
+
+# Packagist requires composer.json at the root of its own git repository,
+# but this project keeps php/ inside the brazil-validator monorepo (same as
+# every other language port). This workflow mirrors just the php/
+# subdirectory into the dedicated matheuslm7/brazil-validator-php repo on
+# every push to master that touches php/, so Packagist always sees an
+# up-to-date, PHP-only repository without anyone having to maintain it by
+# hand. Can also be run manually (workflow_dispatch) for the first sync.
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "php/**"
+  workflow_dispatch: {}
+
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Split php/ into its own branch
+        run: git subtree split --prefix=php -b php-split
+
+      - name: Push split branch to brazil-validator-php
+        env:
+          TOKEN: ${{ secrets.PHP_SPLIT_TOKEN }}
+        run: |
+          git push "https://x-access-token:${TOKEN}@github.com/matheuslm7/brazil-validator-php.git" php-split:main --force
