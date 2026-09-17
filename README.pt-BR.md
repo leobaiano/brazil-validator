@@ -8,7 +8,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/matheuslm7/brazil-validator/go.svg)](https://pkg.go.dev/github.com/matheuslm7/brazil-validator/go)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-Uma biblioteca de validação, normalização e formatação de dados brasileiros: CPF, CNPJ, CEP, telefone, e-mail, chaves PIX e Inscrição Estadual — disponível em TypeScript, Go, Python, Java, Ruby e C#.
+Uma biblioteca de validação, normalização e formatação de dados brasileiros: CPF, CNPJ, CEP, telefone, e-mail, chaves PIX e Inscrição Estadual — disponível em TypeScript, Go, Python, Java, Ruby, C# e PHP.
 
 *Read this in [English](./README.md).*
 
@@ -40,6 +40,7 @@ Todo validador, em toda linguagem, segue as mesmas três funções: `isValid`, `
 | Ruby | `gem install brazil-validator` |
 | C# | `dotnet add package brazil-validator` |
 | Java | veja o trecho Maven em [Java](#java) abaixo |
+| PHP | ainda não está no Packagist — veja [PHP](#php) abaixo |
 
 Depois vá até a seção da sua linguagem abaixo para um exemplo de uso pronto para copiar.
 
@@ -171,6 +172,31 @@ Ie.IsValid("110.042.490.114", "SP"); // true
 ```
 
 Referência completa do C#: [`csharp/README.md`](./csharp).
+
+### PHP
+
+Ainda não publicado no [Packagist](https://packagist.org/) — por enquanto, use direto do GitHub no seu `composer.json`:
+
+```json
+{
+    "repositories": [
+        { "type": "git", "url": "https://github.com/matheuslm7/brazil-validator" }
+    ],
+    "require": {
+        "matheuslm7/brazil-validator": "dev-master"
+    }
+}
+```
+
+```php
+use BrValidator\Cpf;
+use BrValidator\Ie;
+
+Cpf::isValid('529.982.247-25');       // true
+Ie::isValid('110.042.490.114', 'SP'); // true
+```
+
+Referência completa do PHP: [`php/README.md`](./php).
 
 ## API
 
@@ -332,8 +358,9 @@ O algoritmo de cada estado foi verificado contra o espelho oficial do "Roteiro d
 - **[Java](./java)** — mesma cobertura, também conferida contra [`specification/`](./specification).
 - **[Ruby](./ruby)** — mesma cobertura, também conferida contra [`specification/`](./specification).
 - **[C#](./csharp)** — mesma cobertura, também conferida contra [`specification/`](./specification).
+- **[PHP](./php)** — mesma cobertura, também conferida contra [`specification/`](./specification). Ainda não publicado no Packagist.
 
-Implementações em outras linguagens (PHP) são um objetivo de longo prazo do projeto `brazil-validator` como um todo, mas ainda não fazem parte deste repositório. O diretório [`specification/`](./specification) guarda vetores de teste independentes de linguagem (gerados diretamente a partir desta implementação), pensados como a suíte de conformidade compartilhada para essas futuras portas.
+O diretório [`specification/`](./specification) guarda vetores de teste independentes de linguagem (gerados diretamente a partir desta implementação), pensados como a suíte de conformidade compartilhada para todas as portas, incluindo futuras.
 
 ## Referências oficiais
 

@@ -106,3 +106,17 @@ jobs:
           dotnet-version: "8.0.x"
       - run: dotnet build
       - run: dotnet test
+
+  php:
+    name: PHP
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: php
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+      - run: composer install --prefer-dist --no-progress
+      - run: vendor/bin/phpunit
