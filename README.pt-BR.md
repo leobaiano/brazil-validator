@@ -24,6 +24,7 @@ Uma biblioteca de validação, normalização e formatação de dados brasileiro
 - [Linguagens suportadas](#linguagens-suportadas)
 - [Referências oficiais](#referências-oficiais)
 - [Como contribuir](#como-contribuir)
+- [Contribuidores](#contribuidores)
 - [Changelog](#changelog)
 - [Licença](#licença)
 
@@ -351,6 +352,14 @@ Contribuições são bem-vindas — relatos de bug, novos vetores de regressão 
 Encontrou um documento ou chave brasileira que a biblioteca valida errado? [Abra uma issue](https://github.com/matheuslm7/brazil-validator/issues) com o valor de entrada e o resultado esperado — essa é uma das contribuições mais valiosas que esse projeto pode receber.
 
 Veja o [`CONTRIBUTING.pt-BR.md`](./CONTRIBUTING.pt-BR.md) para o guia completo: convenções de código, como rodar os testes de cada linguagem e — o mais importante — a regra de que toda regra fiscal/governamental brasileira precisa ser verificada em uma fonte oficial antes de entrar no código.
+
+## Contribuidores
+
+<a href="https://github.com/matheuslm7/brazil-validator/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=matheuslm7/brazil-validator" alt="Contribuidores do brazil-validator" />
+</a>
+
+Gerado automaticamente a partir do histórico de commits do repositório — atualiza sozinho conforme novas contribuições são mescladas.
 
 ## Changelog
 
