@@ -40,7 +40,7 @@ Todo validador, em toda linguagem, segue as mesmas três funções: `isValid`, `
 | Ruby | `gem install brazil-validator` |
 | C# | `dotnet add package brazil-validator` |
 | Java | veja o trecho Maven em [Java](#java) abaixo |
-| PHP | ainda não está no Packagist — veja [PHP](#php) abaixo |
+| PHP | `composer require matheuslm7/brazil-validator` |
 
 Depois vá até a seção da sua linguagem abaixo para um exemplo de uso pronto para copiar.
 
@@ -175,18 +175,13 @@ Referência completa do C#: [`csharp/README.md`](./csharp).
 
 ### PHP
 
-Ainda não publicado no [Packagist](https://packagist.org/) — por enquanto, use direto do GitHub no seu `composer.json`:
+Publicado no [Packagist](https://packagist.org/packages/matheuslm7/brazil-validator):
 
-```json
-{
-    "repositories": [
-        { "type": "git", "url": "https://github.com/matheuslm7/brazil-validator" }
-    ],
-    "require": {
-        "matheuslm7/brazil-validator": "dev-master"
-    }
-}
+```bash
+composer require matheuslm7/brazil-validator
 ```
+
+*(publicado a partir de [`matheuslm7/brazil-validator-php`](https://github.com/matheuslm7/brazil-validator-php), um repositório sincronizado automaticamente a partir da pasta `php/` deste monorepo a cada push — o Packagist exige `composer.json` na raiz do próprio repositório git, então isso mantém a porta PHP aqui junto com as outras linguagens e ainda atende essa exigência)*
 
 ```php
 use BrValidator\Cpf;
@@ -358,7 +353,7 @@ O algoritmo de cada estado foi verificado contra o espelho oficial do "Roteiro d
 - **[Java](./java)** — mesma cobertura, também conferida contra [`specification/`](./specification).
 - **[Ruby](./ruby)** — mesma cobertura, também conferida contra [`specification/`](./specification).
 - **[C#](./csharp)** — mesma cobertura, também conferida contra [`specification/`](./specification).
-- **[PHP](./php)** — mesma cobertura, também conferida contra [`specification/`](./specification). Ainda não publicado no Packagist.
+- **[PHP](./php)** — mesma cobertura, também conferida contra [`specification/`](./specification).
 
 O diretório [`specification/`](./specification) guarda vetores de teste independentes de linguagem (gerados diretamente a partir desta implementação), pensados como a suíte de conformidade compartilhada para todas as portas, incluindo futuras.
 

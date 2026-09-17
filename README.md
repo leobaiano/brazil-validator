@@ -40,7 +40,7 @@ Every validator, in every language, follows the same three functions: `isValid`,
 | Ruby | `gem install brazil-validator` |
 | C# | `dotnet add package brazil-validator` |
 | Java | see the Maven snippet in [Java](#java) below |
-| PHP | not yet on Packagist — see [PHP](#php) below |
+| PHP | `composer require matheuslm7/brazil-validator` |
 
 Then jump to your language's section below for a copy-pasteable usage example.
 
@@ -175,18 +175,13 @@ Full C# reference: [`csharp/README.md`](./csharp).
 
 ### PHP
 
-Not yet published to [Packagist](https://packagist.org/) — for now, require it straight from GitHub in your `composer.json`:
+Published on [Packagist](https://packagist.org/packages/matheuslm7/brazil-validator):
 
-```json
-{
-    "repositories": [
-        { "type": "git", "url": "https://github.com/matheuslm7/brazil-validator" }
-    ],
-    "require": {
-        "matheuslm7/brazil-validator": "dev-master"
-    }
-}
+```bash
+composer require matheuslm7/brazil-validator
 ```
+
+*(published from [`matheuslm7/brazil-validator-php`](https://github.com/matheuslm7/brazil-validator-php), a repository auto-synced from this monorepo's `php/` directory on every push — Packagist requires `composer.json` at the root of its own git repository, so this keeps the PHP port here alongside every other language while still meeting that requirement)*
 
 ```php
 use BrValidator\Cpf;
@@ -358,7 +353,7 @@ Every state's algorithm was verified against `sintegra.gov.br`'s official "Rotei
 - **[Java](./java)** — same coverage, also checked against [`specification/`](./specification).
 - **[Ruby](./ruby)** — same coverage, also checked against [`specification/`](./specification).
 - **[C#](./csharp)** — same coverage, also checked against [`specification/`](./specification).
-- **[PHP](./php)** — same coverage, also checked against [`specification/`](./specification). Not yet published to Packagist.
+- **[PHP](./php)** — same coverage, also checked against [`specification/`](./specification).
 
 The [`specification/`](./specification) directory holds language-independent test vectors (generated directly from this implementation) meant as the shared conformance suite for every port, including future ones.
 
