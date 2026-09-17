@@ -53,10 +53,6 @@ Pix.get_key_type("+5511987654321")  # :phone
 
 See the [main README](../README.md) for the full behavior reference.
 
-## Conformance
-
-`test/conformance_test.exs` tests this implementation against [`specification/`](../specification), the language-independent test vectors generated from the TypeScript implementation.
-
 ## Development
 
 ```bash
